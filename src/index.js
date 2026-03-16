@@ -8,7 +8,7 @@ const { notFound, errorHandler } = require('./middleware/error');
 
 // Load environment variables
 dotenv.config();
-
+console.log("MONGODB_URI:", process.env.MONGODB_URI);
 // Create Express app
 const app = express();
 

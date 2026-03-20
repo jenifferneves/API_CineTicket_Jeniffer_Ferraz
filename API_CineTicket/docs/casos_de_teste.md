@@ -1,3 +1,4 @@
+US-AUTH-01 — Registro de Usuário
 | ID   | Cenário                             | Resultado Esperado                                     |
 | ---- | ----------------------------------- | ------------------------------------------------------ |
 | CT01 | Registrar usuário com dados válidos | Conta criada com sucesso e redirecionamento para login |

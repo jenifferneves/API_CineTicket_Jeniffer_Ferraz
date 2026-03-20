@@ -1,8 +1,8 @@
-Casos de teste
+### Casos de teste
 
-US-AUTH-01 -- Registro de Usuário
+#### US-AUTH-01 -- Registro de Usuário
 
-CT01 - Registrar usuário com dados válidos 
+- CT01 - Registrar usuário com dados válidos 
 Resultado esperado: conta criada com sucesso e usuário redirecionado para o login
 CT02 - Registrar com e-mail inválido
 Resultado esperado: sistema exibe erro da validação
@@ -11,7 +11,9 @@ Resultado esperado: sistema bloqueia cadastro e informa que e-mail já existe
 CT04 - Registrar sem preencher campos obrigatórios 
 Resultado esperado: sistema solicita preenchimento dos campos
 
-US-AUTH-02 -- Login
+----
+
+#### US-AUTH-02 -- Login
 
 CT01 - Login com credenciais válidas
 Resultado esperado: usuário autenticado e redirecionado para home
@@ -20,14 +22,18 @@ Resultado esperado: sistema exibe erro de autenticação
 CT03 - Verificar geração de token JWT
 Resultado esperado: token JWT retornado no corpo da resposta
 
-US-AUTH-03 -- Acesso sem token
+----
+
+#### US-AUTH-03 -- Acesso sem token
 
 CT01 - Acessar rota protegida sem token
 Resultado esperado: 401 Unauthorized
 CT02 - Token inválido
 Resultado esperado: acesso negado
 
-US-MOVIE-01 -- Navegar Filmes
+----
+
+#### US-MOVIE-01 -- Navegar Filmes
 
 CT01 - Listar filmes disponíveis
 Resultado esperado:
@@ -35,14 +41,18 @@ Resultado esperado:
 	• Retorno com lista de filmes no response
 	• Campos presentes: title, duration, genres, poster
 
-US-MOVIE-02 -- Detalhes do Filme
+----
+
+#### US-MOVIE-02 -- Detalhes do Filme
 
 CT01 - Buscar detalhes do filme por ID
 Resultado esperado:
 	• Status 200 OK
 	• Retorno com dados do filme: title, synopsis, director, duration, releaseDate
 
-US-MOVIE-03 -- Gerenciamento de filmes (CRUD completo)
+----
+
+#### US-MOVIE-03 -- Gerenciamento de filmes (CRUD completo)
 
 CT01 - Criar filme (Admin)
 Resultado esperado:
@@ -61,7 +71,9 @@ Resultado esperado:
 • acesso negado
 • status 401
 
-US-MOVIE-04 -- Testes Negativos (Filmes)
+----
+
+#### US-MOVIE-04 -- Testes Negativos (Filmes)
 
 CT01 - Criar filme com campo obrigatório vazio
 Resultado esperado:
@@ -79,7 +91,9 @@ Resultado esperado:
 	• status 401
 	• mensagem “Not authorized”
 
-US-SESSION-01 -- Visualizar sessões
+----
+
+#### US-SESSION-01 -- Visualizar sessões
 
 CT01 - Listar sessões disponíveis
 Resultado esperado:
@@ -103,7 +117,9 @@ Resultado esperado:
 	• Todos os assentos incluídos na reserva
 	• totalPrice calculado corretamente
 
-US-RESERVE-02 -- Checkout
+----
+
+#### US-RESERVE-02 -- Checkout
 
 CT01 - Criar reserva com sucesso
 Resultado esperado:
@@ -118,7 +134,9 @@ CT03 - Validar processamento de pagamento
 Resultado esperado:
 	• Campo paymentStatus = completed
 
-US-RESERVE-03 -- Histórico de Reservas
+----
+
+#### US-RESERVE-03 -- Histórico de Reservas
 
 CT01 - Listar reservas do usuário
 Resultado esperado:
@@ -143,7 +161,9 @@ Resultado esperado:
 	• Status 400 ou 409
 	• Mensagem de erro
 
-US-FLOW-01 -- Fluxo Completo
+----
+
+#### US-FLOW-01 -- Fluxo Completo
 
 CT01 - Fluxo completo via API
 Passos:

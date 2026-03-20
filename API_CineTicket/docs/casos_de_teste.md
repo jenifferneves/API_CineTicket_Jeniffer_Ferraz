@@ -3,13 +3,14 @@
 #### US-AUTH-01 -- Registro de Usuário
 
 - CT01 - Registrar usuário com dados válidos 
-
 Resultado esperado: conta criada com sucesso e usuário redirecionado para o login
 
 - CT02 - Registrar com e-mail inválido
 Resultado esperado: sistema exibe erro da validação
+
 - CT03 - Registrar com e-mail duplicado
 Resultado esperado: sistema bloqueia cadastro e informa que e-mail já existe
+
 - CT04 - Registrar sem preencher campos obrigatórios 
 Resultado esperado: sistema solicita preenchimento dos campos
 

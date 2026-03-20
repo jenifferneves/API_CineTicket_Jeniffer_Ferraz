@@ -9,7 +9,7 @@ Os testes visam identificar defeitos, validar os requisitos funcionais definidos
 Serão testadas as principais funcionalidades da plataforma relacionadas ao fluxo de compra de ingressos. 
 	
 Funcionalidades incluídas
-• Registro de usuário
+* Registro de usuário
 • Login e autenticação 
 • Navegação de filmes
 • Visualização de detalhes do filme

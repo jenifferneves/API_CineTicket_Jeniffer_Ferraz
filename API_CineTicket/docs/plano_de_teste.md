@@ -1,6 +1,6 @@
 Plano de Teste Sistema de Cinema (CineTicket) - API Cinema
 
-1.  Objetivo
+### 1.  Objetivo
 Este plano de teste tem como objetivo validar a qualidade da API do sistema de cinema (CineTicket), garantindo que as funcionalidades principais operem corretamente e que o sistema seja capaz de suportar múltiplos usuários simultaneamente.
 	
 Os testes visam identificar defeitos, validar os requisitos funcionais definidos nas histórias de usuário e avaliar o comportamento do sistema em diferentes cenários.

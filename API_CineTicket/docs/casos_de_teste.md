@@ -3,7 +3,9 @@
 #### US-AUTH-01 -- Registro de Usuário
 
 - CT01 - Registrar usuário com dados válidos 
+
 Resultado esperado: conta criada com sucesso e usuário redirecionado para o login
+
 - CT02 - Registrar com e-mail inválido
 Resultado esperado: sistema exibe erro da validação
 - CT03 - Registrar com e-mail duplicado
@@ -36,6 +38,7 @@ Resultado esperado: acesso negado
 #### US-MOVIE-01 -- Navegar Filmes
 
 - CT01 - Listar filmes disponíveis
+
 Resultado esperado:
 	* Status 200 OK
 	* Retorno com lista de filmes no response

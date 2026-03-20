@@ -107,14 +107,14 @@ US-FLOW-01 — Fluxo Completo
 
 Passos:
 
-Criar usuário
+* Criar usuário
 
-Login
+* Login
 
-Criar filme
+* Criar filme
 
-Criar teatro
+* Criar teatro
 
-Criar sessão
+* Criar sessão
 
-Criar reserva
+* Criar reserva

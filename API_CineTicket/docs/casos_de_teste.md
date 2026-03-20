@@ -1,10 +1,8 @@
-Casos de teste 
+*Casos de teste* 
 
  
-
 US-AUTH-01 -- Registro de Usuário 
 
- 
 
 CT01 - Registrar usuário com dados válidos  
 

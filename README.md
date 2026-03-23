@@ -139,7 +139,7 @@ Coleções utilizadas para execução dos testes manuais:
 
 Foi criado um mapa mental simples para facilitar a visualização rápida do escopo, funcionalidades e estratégia de testes.
 
-Melhorias Identificadas
+#### Melhorias Identificadas
 - Melhorar validação de dados na API
 - Corrigir autenticação no Swagger para permitir testes manuais
 - Melhorar organização e padronização das rotas no Swagger

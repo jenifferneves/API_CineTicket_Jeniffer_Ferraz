@@ -135,14 +135,20 @@ Coleções utilizadas para execução dos testes manuais:
 - Falha de autenticação no Swagger (JWT não aplicado corretamente)
 - Criação de filmes com duração inválida (validação incorreta da API)
 
+----
+
 #### Mapa Mental
 
 Foi criado um mapa mental simples para facilitar a visualização rápida do escopo, funcionalidades e estratégia de testes.
+
+----
 
 #### Melhorias Identificadas
 - Melhorar validação de dados na API
 - Corrigir autenticação no Swagger para permitir testes manuais
 - Melhorar organização e padronização das rotas no Swagger
+
+----
 
 #### Conclusão
 

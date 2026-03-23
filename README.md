@@ -84,17 +84,17 @@ A estratégia foi baseada nas histórias de usuário e seguiu as etapas:
 
 A organização do projeto foi feita com foco em clareza e facilidade de manutenção:
 
-#docs#
+###### docs
 
 Contém a documentação principal do projeto:
 
 - plano_de_teste.md → planejamento completo dos testes
 - casos_de_teste.md → cenários e casos de teste
 
-mapa_mental
+###### mapa_mental
 - CineTicket.xmind → mapa mental com visão geral do projeto e estratégia de testes
 
-evidencias
+###### evidencias
 
 Contém evidências dos testes executados (prints):
 
@@ -105,11 +105,11 @@ Contém evidências dos testes executados (prints):
 - evid_reserva
   - Testes de reserva e checkout
 	
-performance
+###### performance
 - Precise Throughput Timer.jmx → script do JMeter utilizado no teste de carga
 - test_carga.md → documentação da execução do teste de performance
 
-postman/API_Cinema
+###### postman/API_Cinema
 - automacao
 
 Coleções com testes automatizados dos cenários críticos:
@@ -131,7 +131,7 @@ Coleções utilizadas para execução dos testes manuais:
 
 ----
 
-####Defeitos identificados
+#### Defeitos identificados
 - Falha de autenticação no Swagger (JWT não aplicado corretamente)
 - Criação de filmes com duração inválida (validação incorreta da API)
 

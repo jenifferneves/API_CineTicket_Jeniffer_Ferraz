@@ -27,6 +27,8 @@ As seguintes funcionalidades foram testadas:
 - Checkout
 - Histórico de reservas
 
+Simulação de um fluxo completo via API, avaliando o comportamento do sistema com base nas ações do usuário, desde o registro até a finalização da compra.
+
 ----
 
 #### Tipo de Testes Realizados
@@ -80,66 +82,26 @@ A estratégia foi baseada nas histórias de usuário e seguiu as etapas:
 
 ----
 
-#### Estrutura do Projeto
+#### Branch de Automação
 
-A organização do projeto foi feita com foco em clareza e facilidade de manutenção:
+Este repositório possui uma branch adicional chamada qa_automation, onde está organizada toda a estrutura de testes desenvolvida durante o projeto.
 
-##### docs
+Nela estão incluídos:
 
-Contém a documentação principal do projeto:
+- Casos de teste
+- Plano de teste
+- Evidências dos testes executados
+- Testes automatizados no Postman
+- Scripts de testes de performance (JMeter)
+- Mapa mental do projeto
 
-- plano_de_teste.md → planejamento completo dos testes
-- casos_de_teste.md → cenários e casos de teste
-
-##### mapa_mental
-- CineTicket.xmind → mapa mental com visão geral do projeto e estratégia de testes
-
-##### evidencias
-
-Contém evidências dos testes executados (prints):
-
-- evid_auth
-  - Testes positivos e negativos de autenticação
-- evid_movie
-  - Testes relacionados a filmes
-- evid_reserva
-  - Testes de reserva e checkout
-	
-##### performance
-- Precise Throughput Timer.jmx → script do JMeter utilizado no teste de carga
-- test_carga.md → documentação da execução do teste de performance
-
-##### postman/API_Cinema
-- automacao
-
-Coleções com testes automatizados dos cenários críticos:
-
-- auth
-- movie
-- reserva
-- sessões
-
-- tests_manuais
-
-Coleções utilizadas para execução dos testes manuais:
-
-- autenticação
-- filmes
-- reservas
-- sessões
-- teatro
+Essa organização foi criada com foco em clareza, padronização e facilidade de manutenção.
 
 ----
 
 #### Defeitos identificados
 - Falha de autenticação no Swagger (JWT não aplicado corretamente)
 - Criação de filmes com duração inválida (validação incorreta da API)
-
-----
-
-#### Mapa Mental
-
-Foi criado um mapa mental simples para facilitar a visualização rápida do escopo, funcionalidades e estratégia de testes.
 
 ----
 
@@ -155,3 +117,11 @@ Foi criado um mapa mental simples para facilitar a visualização rápida do esc
 O sistema apresentou bom funcionamento nos fluxos principais, com alguns pontos de melhoria identificados.
 
 Os testes de performance indicaram que a aplicação suporta acessos simultâneos nas rotas principais sem falhas críticas.
+
+----
+
+#### Contato
+
+Caso queira trocar experiências ou saber mais sobre o projeto:
+
+LinkedIn: www.linkedin.com/in/jeniffer-ferraz-42166a254

@@ -31,6 +31,20 @@ Simulação de um fluxo completo via API, avaliando o comportamento do sistema c
 
 ----
 
+#### Estratégia de Teste
+
+A estratégia foi baseada nas histórias de usuário e seguiu as etapas:
+
+1. Análise das funcionalidades
+2. Criação dos casos de teste
+3. Execução de testes manuais
+4. Registro de defeitos
+5. Automação de cenários críticos
+6. Testes de API
+7. Testes de performance
+
+----
+
 #### Tipo de Testes Realizados
 
 ##### Testes Funcionais (Manuais)
@@ -65,20 +79,6 @@ Endpoints testados:
 
 - GET /api/v1/movies
 - GET /api/v1/sessions
-
-----
-
-#### Estratégia de Teste
-
-A estratégia foi baseada nas histórias de usuário e seguiu as etapas:
-
-1. Análise das funcionalidades
-2. Criação dos casos de teste
-3. Execução de testes manuais
-4. Registro de defeitos
-5. Automação de cenários críticos
-6. Testes de API
-7. Testes de performance
 
 ----
 

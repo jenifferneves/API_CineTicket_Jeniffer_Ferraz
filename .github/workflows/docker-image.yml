@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t jenifferferraz/api-cineticket:latest -f src/Dockerfile src
+        run: docker build -t jenifferferraz/api-cineticket:latest -f src/Dockerfile .
 
       - name: Push Docker image
         run: docker push jenifferferraz/api-cineticket:latest

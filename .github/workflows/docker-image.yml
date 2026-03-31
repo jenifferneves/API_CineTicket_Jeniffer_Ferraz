@@ -18,7 +18,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: jenifferferraz
-          password: ${{ secrets.password }}
+          password: ${{ secrets.PASSWORD }}
 
       - name: Build Docker image
         run: docker build -t jenifferferraz/api-cineticket:latest -f src/Dockerfile src

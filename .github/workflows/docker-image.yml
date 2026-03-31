@@ -24,4 +24,4 @@ jobs:
         run: docker build -t jenifferferraz/api-cineticket:latest -f src/Dockerfile src
 
       - name: Push Docker image
-        run: docker push jenifferferraz/api-cineticket:latest -f src/Dockerfile src
+        run: docker push jenifferferraz/api-cineticket:latest

@@ -1,0 +1,27 @@
+name: Docker build and push
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: jenifferferraz
+          password: ${{ secrets.PASSWORD }}
+
+      - name: Build Docker image
+        run: docker build -t jenifferferraz/api-cineticket:latest -f src/Dockerfile src
+
+      - name: Push Docker image
+        run: docker push jenifferferraz/api-cineticket:latest -f src/Dockerfile src

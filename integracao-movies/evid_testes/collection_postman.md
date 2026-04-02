@@ -1,1 +1,1 @@
-https://api-serverest-2523.postman.co/workspace/API-CineTicket~0829b643-cff9-4d95-a981-dfeec3ac9c6a/collection/39173990-764c6756-b64a-4522-a99c-f17859309ddf?action=share&source=copy-link&creator=39173990
+https://api-serverest-2523.postman.co/workspace/API-CineTicket~0829b643-cff9-4d95-a981-dfeec3ac9c6a/folder/39173990-8ac26bb7-7a97-441d-8f32-49e3a094d586?action=share&source=copy-link&creator=39173990&ctx=documentation

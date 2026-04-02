@@ -1,6 +1,6 @@
-# 🎬 Casos de Teste - Backend
+# Casos de Teste - Backend
 
-## 🧾 User Story: US-MOVIE-01 - Navegar Filmes
+## User Story: US-MOVIE-01 - Navegar Filmes
 
 | ID     | Cenário                       | Ação                          | Resultado Esperado |
 |--------|------------------------------|-------------------------------|--------------------|

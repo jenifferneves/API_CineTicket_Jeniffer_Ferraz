@@ -9,7 +9,7 @@
 
 ---
 
-## 🧾 User Story: US-MOVIE-02 - Testes Negativos (Filmes)
+## User Story: US-MOVIE-02 - Testes Negativos (Filmes)
 
 | ID     | Cenário                                      | Ação                                  | Resultado Esperado |
 |--------|---------------------------------------------|----------------------------------------|--------------------|

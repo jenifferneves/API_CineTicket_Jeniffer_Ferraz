@@ -152,5 +152,4 @@ Os testes são considerados bem-sucedidos quando:
 Algumas limitações podem impactar os testes:
 
 - Ambiente local pode não refletir exatamente o ambiente de produção
-- Testes de pagamento utilizam simulação
 - Tempo limitado para execução completa de todos os cenários possíveis

@@ -1,34 +1,18 @@
-Casos de Teste Back-end
+# 🎬 Casos de Teste - Backend
 
-US-MOVIE-01 -- Navegar Filmes
+## 🧾 User Story: US-MOVIE-01 - Navegar Filmes
 
-CT-B01 - Listar filmes disponíveis
-Resultado esperado:
-    • Status 200 OK
-    • Retorno com lista de filmes no response
-    • Campos presentes: title, duration, genres, poster
+| ID     | Cenário                       | Ação                          | Resultado Esperado |
+|--------|------------------------------|-------------------------------|--------------------|
+| CT-B01 | Listar filmes disponíveis    | Realizar GET /movies          | Status 200 OK e retorno com lista de filmes contendo: title, duration, genres, poster |
+| CT-B02 | Buscar detalhes do filme por ID  | Realizar GET /movies/:id      | Status 200 OK e retorno com dados do filme: title, synopsis, director, duration, releaseDate |
 
-US-MOVIE-02 -- Detalhes do Filme
+---
 
-CT-B01 - Buscar detalhes do filme por ID
-Resultado esperado:
-    • Status 200 OK
-    • Retorno com dados do filme: title, synopsis, director, duration, releaseDate
+## 🧾 User Story: US-MOVIE-02 - Testes Negativos (Filmes)
 
-US-MOVIE-03 -- Testes Negativos (Filmes)
-
-CT-B01 - Criar filme com campo obrigatório vazio
-Resultado esperado:
-    • sistema retorna erro de validação
-    • status 400
-    • mensagem informando campos obrigatórios
-CT-B02 - Criar filme com duração inválida (ex: negativa ou zero)
-Resultado esperado:
-    • sistema bloqueia criação
-    • status 400
-    • mensagem informando valor inválido
-CT-B03 - Criar filme sem autenticação (Sem token)
-Resultado esperado:
-    • acesso negado
-    • status 401
-    • mensagem “Not authorized”
+| ID     | Cenário                                      | Ação                                  | Resultado Esperado |
+|--------|---------------------------------------------|----------------------------------------|--------------------|
+| CT-B01 | Criar filme com campo obrigatório vazio      | Realizar POST /movies com dados inválidos | Status 400 e mensagem de erro informando campos obrigatórios |
+| CT-B02 | Criar filme com duração inválida             | Realizar POST /movies com duração inválida | Status 400 e mensagem informando valor inválido |
+| CT-B03 | Criar filme sem autenticação (sem token)     | Realizar POST /movies sem token         | Status 401 e mensagem "Not authorized" |

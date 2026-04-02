@@ -1,61 +1,15 @@
-Casos de Teste Front-end
+# Casos de Teste - Frontend
 
-US-MOVIE-01 -- Navegar Filmes
+## User Story: US-MOVIE-01 - Navegar Filmes
 
-CT-F01 - Listagem de Filmes
-Ação: Acessar a página de filmes
-Resultado esperado:
-    • Filmes devem ser exibidos na tela
-    • Layout em formato de grid
-
-CT-F02 - Informações do filme
-Ação: Acessar Lista
-Resultado esperado:
-    • Cada Filme deve ser exibido:
-        · Título
-        · Duração
-        · Gênero
-        · Classificação
-
-CT-F03 - Imagem do filme
-Ação: Acessar Lista
-Resultado esperado:
-    • O pôster deve ser exibido corretamente
-    • Imagem não deve estar quebrada
-
-CT-F04 - Filme sem pôster
-Ação: Acessar Lista
-Resultado esperado:
-    • Sistema deve exibir imagem padrão ou fallback
-
-CT-F05 - Acessar detalhes
-Ação: Clicar em um filme 
-Resultado esperado:
-    • Deve redirecionar para a tela de detalhes
-
-CT-F06 - Visualização do filme
-Ação: Acessar detalhe
-Resultado esperado:
-    • Exibir:
-        · Título
-        · Sinopse
-        · Duração
-        · Data de lançamento
-
-CT-F07 - Diferentes telas
-Ação: Redimensionar tela
-Resultado esperado:
-    • Layout deve se adaptar
-    • Cards não devem quebrar
-
-CT-F08 - Nenhum filme disponível
-Ação: Acessar página
-Resultado esperado: 
-    • Exibir mensagem:
-        · "Nenhum filme disponível"
-
-CT-F09 - Falha na API
-Ação: Acessar página
-Resultado esperado:
-    • Exibir mensagem de erro
-    • Interface não deve quebrar
+| ID     | Cenário                    | Ação                         | Resultado Esperado |
+|--------|---------------------------|------------------------------|--------------------|
+| CT-F01 | Listagem de Filmes        | Acessar a página de filmes   | Filmes devem ser exibidos na tela em formato de grid |
+| CT-F02 | Informações do Filme      | Acessar lista de filmes      | Cada filme deve exibir: título, duração, gênero e classificação |
+| CT-F03 | Imagem do Filme           | Acessar lista de filmes      | O pôster deve ser exibido corretamente, sem erro de carregamento |
+| CT-F04 | Filme sem Pôster          | Acessar lista de filmes      | Deve exibir imagem padrão (fallback) |
+| CT-F05 | Acessar Detalhes          | Clicar em um filme           | Deve redirecionar para a tela de detalhes |
+| CT-F06 | Visualização do Filme     | Acessar tela de detalhes     | Exibir: título, sinopse, duração e data de lançamento |
+| CT-F07 | Responsividade            | Redimensionar a tela         | Layout deve se adaptar e os cards não devem quebrar |
+| CT-F08 | Nenhum Filme Disponível   | Acessar página sem dados     | Exibir mensagem: "Nenhum filme disponível" |
+| CT-F09 | Falha na API              | Acessar página com erro API  | Exibir mensagem de erro sem quebrar a interface |

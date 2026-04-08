@@ -1,326 +1,489 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-08T19:38:18.686216" rpa="false" schemaversion="5">
-<suite id="s1" name="Movies" source="C:\Users\jeniffer.neves\source\repos\API_CineTicket_Jeniffer_Ferraz\API_CineTicket\vs-code_robot\movies.robot">
-<test id="s1-t1" name="Criar Filme" line="11">
+<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-08T20:40:39.760756" rpa="false" schemaversion="5">
+<suite id="s1" name="Reserva" source="C:\Users\jeniffer.neves\source\repos\API_CineTicket_Jeniffer_Ferraz\API_CineTicket\vs-code_robot\reserva.robot">
+<test id="s1-t1" name="Fluxo Completo Reserva" line="11">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2026-04-08T19:38:18.934547" level="INFO">Creating Session using : alias=api, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2026-04-08T20:40:40.103509" level="INFO">Creating Session using : alias=api, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>api</arg>
 <arg>${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2026-04-08T19:38:18.934355" elapsed="0.000590"/>
+<status status="PASS" start="2026-04-08T20:40:40.103291" elapsed="0.000499"/>
 </kw>
 <kw name="Generate Random String" owner="String">
-<msg time="2026-04-08T19:38:18.935909" level="INFO">${random} = 97483</msg>
+<msg time="2026-04-08T20:40:40.104878" level="INFO">${random} = 77038</msg>
 <var>${random}</var>
 <arg>5</arg>
 <arg>0123456789</arg>
 <doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<status status="PASS" start="2026-04-08T19:38:18.935659" elapsed="0.000269"/>
+<status status="PASS" start="2026-04-08T20:40:40.104584" elapsed="0.000320"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-08T19:38:18.936739" level="INFO">${email} = admin_97483@email.com</msg>
+<msg time="2026-04-08T20:40:40.105569" level="INFO">${email} = admin_77038@email.com</msg>
 <var>${email}</var>
 <arg>admin_${random}@email.com</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-08T19:38:18.936492" elapsed="0.000264"/>
+<status status="PASS" start="2026-04-08T20:40:40.105307" elapsed="0.000278"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-08T19:38:18.937630" level="INFO">${admin_body} = {'name': 'Admin User', 'email': 'admin_97483@email.com', 'password': 'admin123'}</msg>
+<msg time="2026-04-08T20:40:40.106186" level="INFO">${admin_body} = {'name': 'Admin User', 'email': 'admin_77038@email.com', 'password': 'admin123'}</msg>
 <var>${admin_body}</var>
 <arg>name=Admin User</arg>
 <arg>email=${email}</arg>
 <arg>password=admin123</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-08T19:38:18.937293" elapsed="0.000354"/>
+<status status="PASS" start="2026-04-08T20:40:40.105852" elapsed="0.000352"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-08T19:38:19.131485" level="INFO">POST Request : url=http://localhost:3000/api/v1/setup/admin 
+<msg time="2026-04-08T20:40:40.233410" level="INFO">POST Request : url=http://localhost:3000/api/v1/setup/admin 
  path_url=/api/v1/setup/admin 
  headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '80', 'Content-Type': 'application/json'} 
- body=b'{"name": "Admin User", "email": "admin_97483@email.com", "password": "admin123"}' 
+ body=b'{"name": "Admin User", "email": "admin_77038@email.com", "password": "admin123"}' 
  </msg>
-<msg time="2026-04-08T19:38:19.131727" level="INFO">POST Response : url=http://localhost:3000/api/v1/setup/admin 
+<msg time="2026-04-08T20:40:40.233536" level="INFO">POST Response : url=http://localhost:3000/api/v1/setup/admin 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '169', 'ETag': 'W/"a9-p/OKNI7vXBkxuNRssLTiFcLyTC4"', 'Date': 'Wed, 08 Apr 2026 22:38:19 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Admin user created successfully","data":{"_id":"69d6d8daddcb597b4bb7a18e","name":"Admin User","email":"admin_97483@email.com","role":"admin"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '169', 'ETag': 'W/"a9-z9loSLF1fBjjJfX2fJLVB5j+DNg"', 'Date': 'Wed, 08 Apr 2026 23:40:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"Admin user created successfully","data":{"_id":"69d6e778ddcb597b4bb7a27e","name":"Admin User","email":"admin_77038@email.com","role":"admin"}} 
  </msg>
 <arg>api</arg>
 <arg>/api/v1/setup/admin</arg>
 <arg>json=${admin_body}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-08T19:38:18.938242" elapsed="0.193624"/>
+<status status="PASS" start="2026-04-08T20:40:40.106783" elapsed="0.126818"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.133470" level="INFO">${login_body} = {'email': 'admin_97483@email.com', 'password': 'admin123'}</msg>
+<msg time="2026-04-08T20:40:40.235065" level="INFO">${login_body} = {'email': 'admin_77038@email.com', 'password': 'admin123'}</msg>
 <var>${login_body}</var>
 <arg>email=${email}</arg>
 <arg>password=admin123</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.132669" elapsed="0.000848"/>
+<status status="PASS" start="2026-04-08T20:40:40.234652" elapsed="0.000434"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-08T19:38:19.279429" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2026-04-08T20:40:40.367506" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
  path_url=/api/v1/auth/login 
  headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '58', 'Content-Type': 'application/json'} 
- body=b'{"email": "admin_97483@email.com", "password": "admin123"}' 
+ body=b'{"email": "admin_77038@email.com", "password": "admin123"}' 
  </msg>
-<msg time="2026-04-08T19:38:19.279499" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2026-04-08T20:40:40.367575" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '307', 'ETag': 'W/"133-U+1QZw32rLlhn7YCKKV2DISGUG4"', 'Date': 'Wed, 08 Apr 2026 22:38:19 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"_id":"69d6d8daddcb597b4bb7a18e","name":"Admin User","email":"admin_97483@email.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOGRhZGRjYjU5N2I0YmI3YTE4ZSIsImlhdCI6MTc3NTY4Nzg5OSwiZXhwIjoxNzc1Nzc0Mjk5fQ.EztzCGhC19-YPYuFuUlH83NxXorZrEeibUy1KTXv5lc"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '307', 'ETag': 'W/"133-KZm4YK6sAcdqvvm7D0WuOnBNq+Y"', 'Date': 'Wed, 08 Apr 2026 23:40:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"69d6e778ddcb597b4bb7a27e","name":"Admin User","email":"admin_77038@email.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI3ZSIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.INv0t1X-tNQzfzfUZjdT3k5Zox6YSKoskOcOgXmUG1g"}} 
  </msg>
-<msg time="2026-04-08T19:38:19.279616" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
+<msg time="2026-04-08T20:40:40.367705" level="INFO">${login} = &lt;Response [200]&gt;</msg>
+<var>${login}</var>
 <arg>api</arg>
 <arg>/api/v1/auth/login</arg>
 <arg>json=${login_body}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.134241" elapsed="0.145391"/>
+<status status="PASS" start="2026-04-08T20:40:40.235466" elapsed="0.132259"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.280722" level="INFO">${json} = {'success': True, 'data': {'_id': '69d6d8daddcb597b4bb7a18e', 'name': 'Admin User', 'email': 'admin_97483@email.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOG...</msg>
-<var>${json}</var>
-<arg>${response.json()}</arg>
+<msg time="2026-04-08T20:40:40.368995" level="INFO">${admin_json} = {'success': True, 'data': {'_id': '69d6e778ddcb597b4bb7a27e', 'name': 'Admin User', 'email': 'admin_77038@email.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNz...</msg>
+<var>${admin_json}</var>
+<arg>${login.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.280148" elapsed="0.000595"/>
+<status status="PASS" start="2026-04-08T20:40:40.368439" elapsed="0.000576"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.281619" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOGRhZGRjYjU5N2I0YmI3YTE4ZSIsImlhdCI6MTc3NTY4Nzg5OSwiZXhwIjoxNzc1Nzc0Mjk5fQ.EztzCGhC19-YPYuFuUlH83NxXorZrEeibUy1KTXv5lc</msg>
-<var>${token}</var>
-<arg>${json['data']['token']}</arg>
+<msg time="2026-04-08T20:40:40.370280" level="INFO">${admin_token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI3ZSIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.INv0t1X-tNQzfzfUZjdT3k5Zox6YSKoskOcOgXmUG1g</msg>
+<var>${admin_token}</var>
+<arg>${admin_json['data']['token']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.281225" elapsed="0.000412"/>
+<status status="PASS" start="2026-04-08T20:40:40.369575" elapsed="0.000739"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.283473" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOGRhZGRjYjU5N2I0YmI3YTE4ZSIsImlhdCI6MTc3NTY4Nzg5OSwiZXhwIjoxNzc1Nzc0Mjk5fQ.EztzCGhC19-YPYuFuUlH83NxXorZrEeibUy1KTXv5lc'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
+<msg time="2026-04-08T20:40:40.371756" level="INFO">${admin_headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI3ZSIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.INv0t1X-tNQzfzfUZjdT3k5Zox6YSKoskOcOgXmUG1g', ...</msg>
+<var>${admin_headers}</var>
+<arg>Authorization=Bearer ${admin_token}</arg>
+<arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.283155" elapsed="0.000339"/>
+<status status="PASS" start="2026-04-08T20:40:40.371265" elapsed="0.000522"/>
 </kw>
 <kw name="Create List" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.284129" level="INFO">${genres} = ['Drama']</msg>
+<msg time="2026-04-08T20:40:40.372310" level="INFO">${genres} = ['Drama']</msg>
 <var>${genres}</var>
 <arg>Drama</arg>
 <doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.283928" elapsed="0.000218"/>
+<status status="PASS" start="2026-04-08T20:40:40.372083" elapsed="0.000246"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.284654" level="INFO">${movie} = {'title': 'Filme Teste', 'synopsis': 'Um filme de teste automatizado', 'director': 'Diretor Teste', 'genres': ['Drama'], 'duration': '120', 'classification': '16', 'poster': 'teste.jpg', 'releaseDate'...</msg>
+<msg time="2026-04-08T20:40:40.373234" level="INFO">${movie} = {'title': 'Filme Reserva', 'synopsis': 'Fluxo completo teste', 'director': 'Diretor Teste', 'genres': ['Drama'], 'duration': '120', 'classification': 'PG-13', 'poster': 'teste.jpg', 'releaseDate': '20...</msg>
 <var>${movie}</var>
-<arg>title=Filme Teste</arg>
-<arg>synopsis=Um filme de teste automatizado</arg>
+<arg>title=Filme Reserva</arg>
+<arg>synopsis=Fluxo completo teste</arg>
 <arg>director=Diretor Teste</arg>
 <arg>genres=${genres}</arg>
 <arg>duration=120</arg>
-<arg>classification=16</arg>
+<arg>classification=PG-13</arg>
 <arg>poster=teste.jpg</arg>
 <arg>releaseDate=2026-04-08</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.284411" elapsed="0.000260"/>
+<status status="PASS" start="2026-04-08T20:40:40.372794" elapsed="0.000462"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-08T19:38:19.307487" level="INFO">POST Request : url=http://localhost:3000/api/v1/movies 
+<msg time="2026-04-08T20:40:40.387192" level="INFO">POST Request : url=http://localhost:3000/api/v1/movies 
  path_url=/api/v1/movies 
- headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOGRhZGRjYjU5N2I0YmI3YTE4ZSIsImlhdCI6MTc3NTY4Nzg5OSwiZXhwIjoxNzc1Nzc0Mjk5fQ.EztzCGhC19-YPYuFuUlH83NxXorZrEeibUy1KTXv5lc', 'Content-Length': '215', 'Content-Type': 'application/json'} 
- body=b'{"title": "Filme Teste", "synopsis": "Um filme de teste automatizado", "director": "Diretor Teste", "genres": ["Drama"], "duration": "120", "classification": "16", "poster": "teste.jpg", "releaseDate": "2026-04-08"}' 
+ headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI3ZSIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.INv0t1X-tNQzfzfUZjdT3k5Zox6YSKoskOcOgXmUG1g', 'Content-Type': 'application/json', 'Content-Length': '210'} 
+ body=b'{"title": "Filme Reserva", "synopsis": "Fluxo completo teste", "director": "Diretor Teste", "genres": ["Drama"], "duration": "120", "classification": "PG-13", "poster": "teste.jpg", "releaseDate": "2026-04-08"}' 
  </msg>
-<msg time="2026-04-08T19:38:19.307578" level="INFO">POST Response : url=http://localhost:3000/api/v1/movies 
+<msg time="2026-04-08T20:40:40.387334" level="INFO">POST Response : url=http://localhost:3000/api/v1/movies 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '387', 'ETag': 'W/"183-aqxbvRL+MZYzerQP0c2d/DCtVto"', 'Date': 'Wed, 08 Apr 2026 22:38:19 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"title":"Filme Teste","synopsis":"Um filme de teste automatizado","director":"Diretor Teste","genres":["Drama"],"duration":120,"classification":"16","poster":"teste.jpg","releaseDate":"2026-04-08T00:00:00.000Z","_id":"69d6d8dbddcb597b4bb7a192","createdAt":"2026-04-08T22:38:19.297Z","updatedAt":"2026-04-08T22:38:19.297Z","__v":0,"id":"69d6d8dbddcb597b4bb7a192"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '382', 'ETag': 'W/"17e-UxS8SfvMbF02iPjOprFIYyaW2jI"', 'Date': 'Wed, 08 Apr 2026 23:40:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"title":"Filme Reserva","synopsis":"Fluxo completo teste","director":"Diretor Teste","genres":["Drama"],"duration":120,"classification":"PG-13","poster":"teste.jpg","releaseDate":"2026-04-08T00:00:00.000Z","_id":"69d6e778ddcb597b4bb7a282","createdAt":"2026-04-08T23:40:40.382Z","updatedAt":"2026-04-08T23:40:40.382Z","__v":0,"id":"69d6e778ddcb597b4bb7a282"}} 
  </msg>
-<msg time="2026-04-08T19:38:19.307673" level="INFO">${create} = &lt;Response [201]&gt;</msg>
-<var>${create}</var>
+<msg time="2026-04-08T20:40:40.387448" level="INFO">${movie_res} = &lt;Response [201]&gt;</msg>
+<var>${movie_res}</var>
 <arg>api</arg>
 <arg>/api/v1/movies</arg>
 <arg>json=${movie}</arg>
-<arg>headers=${headers}</arg>
+<arg>headers=${admin_headers}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.285228" elapsed="0.022460"/>
+<status status="PASS" start="2026-04-08T20:40:40.373663" elapsed="0.013802"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.308694" level="INFO">{"success":true,"data":{"title":"Filme Teste","synopsis":"Um filme de teste automatizado","director":"Diretor Teste","genres":["Drama"],"duration":120,"classification":"16","poster":"teste.jpg","releaseDate":"2026-04-08T00:00:00.000Z","_id":"69d6d8dbddcb597b4bb7a192","createdAt":"2026-04-08T22:38:19.297Z","updatedAt":"2026-04-08T22:38:19.297Z","__v":0,"id":"69d6d8dbddcb597b4bb7a192"}}</msg>
-<arg>${create.text}</arg>
+<msg time="2026-04-08T20:40:40.388726" level="INFO">{"success":true,"data":{"title":"Filme Reserva","synopsis":"Fluxo completo teste","director":"Diretor Teste","genres":["Drama"],"duration":120,"classification":"PG-13","poster":"teste.jpg","releaseDate":"2026-04-08T00:00:00.000Z","_id":"69d6e778ddcb597b4bb7a282","createdAt":"2026-04-08T23:40:40.382Z","updatedAt":"2026-04-08T23:40:40.382Z","__v":0,"id":"69d6e778ddcb597b4bb7a282"}}</msg>
+<arg>${movie_res.text}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.308247" elapsed="0.000479"/>
+<status status="PASS" start="2026-04-08T20:40:40.388078" elapsed="0.000688"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
-<arg>${create.status_code} == 200 or ${create.status_code} == 201</arg>
+<arg>${movie_res.status_code} == 200 or ${movie_res.status_code} == 201</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.309471" elapsed="0.001140"/>
+<status status="PASS" start="2026-04-08T20:40:40.389096" elapsed="0.000916"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.311454" level="INFO">${movie_json} = {'success': True, 'data': {'title': 'Filme Teste', 'synopsis': 'Um filme de teste automatizado', 'director': 'Diretor Teste', 'genres': ['Drama'], 'duration': 120, 'classification': '16', 'poster': 't...</msg>
+<msg time="2026-04-08T20:40:40.391815" level="INFO">${movie_json} = {'success': True, 'data': {'title': 'Filme Reserva', 'synopsis': 'Fluxo completo teste', 'director': 'Diretor Teste', 'genres': ['Drama'], 'duration': 120, 'classification': 'PG-13', 'poster': 'teste....</msg>
 <var>${movie_json}</var>
-<arg>${create.json()}</arg>
+<arg>${movie_res.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.311017" elapsed="0.000502"/>
+<status status="PASS" start="2026-04-08T20:40:40.390556" elapsed="0.001288"/>
 </kw>
-<kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.312164" level="INFO">Length is 2.</msg>
-<arg>${movie_json}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.311831" elapsed="0.000367"/>
-</kw>
-<status status="PASS" start="2026-04-08T19:38:18.933185" elapsed="0.379875"/>
-</test>
-<test id="s1-t2" name="Listar Filmes" line="62">
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2026-04-08T19:38:19.314803" level="INFO">Creating Session using : alias=api, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>api</arg>
-<arg>${BASE_URL}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2026-04-08T19:38:19.314668" elapsed="0.006254"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.394145" level="INFO">${movie_id} = 69d6e778ddcb597b4bb7a282</msg>
+<var>${movie_id}</var>
+<arg>${movie_json['data']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.392586" elapsed="0.001680"/>
 </kw>
 <kw name="Generate Random String" owner="String">
-<msg time="2026-04-08T19:38:19.321858" level="INFO">${random} = 69322</msg>
-<var>${random}</var>
+<msg time="2026-04-08T20:40:40.395642" level="INFO">${random_theater} = 65617</msg>
+<var>${random_theater}</var>
 <arg>5</arg>
 <arg>0123456789</arg>
 <doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.321530" elapsed="0.000354"/>
+<status status="PASS" start="2026-04-08T20:40:40.395432" elapsed="0.000232"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.322539" level="INFO">${email} = admin_69322@email.com</msg>
-<var>${email}</var>
-<arg>admin_${random}@email.com</arg>
+<msg time="2026-04-08T20:40:40.396446" level="INFO">${theater_name} = Teatro_65617</msg>
+<var>${theater_name}</var>
+<arg>Teatro_${random_theater}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.322293" elapsed="0.000263"/>
+<status status="PASS" start="2026-04-08T20:40:40.396186" elapsed="0.000280"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.323305" level="INFO">${admin_body} = {'name': 'Admin User', 'email': 'admin_69322@email.com', 'password': 'admin123'}</msg>
-<var>${admin_body}</var>
-<arg>name=Admin User</arg>
-<arg>email=${email}</arg>
-<arg>password=admin123</arg>
+<msg time="2026-04-08T20:40:40.397275" level="INFO">${theater} = {'name': 'Teatro_65617', 'capacity': '100', 'type': 'standard'}</msg>
+<var>${theater}</var>
+<arg>name=${theater_name}</arg>
+<arg>capacity=100</arg>
+<arg>type=standard</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.322829" elapsed="0.000509"/>
+<status status="PASS" start="2026-04-08T20:40:40.396920" elapsed="0.000376"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.398881" level="INFO">${theater_json_string} = {"name": "Teatro_65617", "capacity": "100", "type": "standard"}</msg>
+<var>${theater_json_string}</var>
+<arg>json.dumps($theater)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.397814" elapsed="0.001095"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-08T19:38:19.451440" level="INFO">POST Request : url=http://localhost:3000/api/v1/setup/admin 
- path_url=/api/v1/setup/admin 
- headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '80', 'Content-Type': 'application/json'} 
- body=b'{"name": "Admin User", "email": "admin_69322@email.com", "password": "admin123"}' 
+<msg time="2026-04-08T20:40:40.417384" level="INFO">POST Request : url=http://localhost:3000/api/v1/theaters 
+ path_url=/api/v1/theaters 
+ headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI3ZSIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.INv0t1X-tNQzfzfUZjdT3k5Zox6YSKoskOcOgXmUG1g', 'Content-Type': 'application/json', 'Content-Length': '63'} 
+ body={"name": "Teatro_65617", "capacity": "100", "type": "standard"} 
  </msg>
-<msg time="2026-04-08T19:38:19.451509" level="INFO">POST Response : url=http://localhost:3000/api/v1/setup/admin 
+<msg time="2026-04-08T20:40:40.417565" level="INFO">POST Response : url=http://localhost:3000/api/v1/theaters 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '169', 'ETag': 'W/"a9-nJU7FPu65WSJMGPL9CRQmDjmJFY"', 'Date': 'Wed, 08 Apr 2026 22:38:19 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Admin user created successfully","data":{"_id":"69d6d8dbddcb597b4bb7a195","name":"Admin User","email":"admin_69322@email.com","role":"admin"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '231', 'ETag': 'W/"e7-20VRoKasHraN05IVuV0SJTCf9qA"', 'Date': 'Wed, 08 Apr 2026 23:40:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"name":"Teatro_65617","capacity":100,"type":"standard","_id":"69d6e778ddcb597b4bb7a285","createdAt":"2026-04-08T23:40:40.412Z","updatedAt":"2026-04-08T23:40:40.412Z","__v":0,"id":"69d6e778ddcb597b4bb7a285"}} 
  </msg>
+<msg time="2026-04-08T20:40:40.417794" level="INFO">${theater_res} = &lt;Response [201]&gt;</msg>
+<var>${theater_res}</var>
 <arg>api</arg>
-<arg>/api/v1/setup/admin</arg>
-<arg>json=${admin_body}</arg>
+<arg>/api/v1/theaters</arg>
+<arg>data=${theater_json_string}</arg>
+<arg>headers=${admin_headers}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.323834" elapsed="0.127736"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.452364" level="INFO">${login_body} = {'email': 'admin_69322@email.com', 'password': 'admin123'}</msg>
-<var>${login_body}</var>
-<arg>email=${email}</arg>
-<arg>password=admin123</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.452049" elapsed="0.000333"/>
-</kw>
-<kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-08T19:38:19.594974" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
- path_url=/api/v1/auth/login 
- headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '58', 'Content-Type': 'application/json'} 
- body=b'{"email": "admin_69322@email.com", "password": "admin123"}' 
- </msg>
-<msg time="2026-04-08T19:38:19.595116" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
- status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '307', 'ETag': 'W/"133-VlP6OCOqBCWnHpOvE+ziM6NpB+M"', 'Date': 'Wed, 08 Apr 2026 22:38:19 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"_id":"69d6d8dbddcb597b4bb7a195","name":"Admin User","email":"admin_69322@email.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOGRiZGRjYjU5N2I0YmI3YTE5NSIsImlhdCI6MTc3NTY4Nzg5OSwiZXhwIjoxNzc1Nzc0Mjk5fQ.JwKjh5Ms07o_N4QDF33iZ8_dAzWE3GyikNGWleMtsLw"}} 
- </msg>
-<msg time="2026-04-08T19:38:19.595345" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>api</arg>
-<arg>/api/v1/auth/login</arg>
-<arg>json=${login_body}</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.452848" elapsed="0.142540"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.597355" level="INFO">${json} = {'success': True, 'data': {'_id': '69d6d8dbddcb597b4bb7a195', 'name': 'Admin User', 'email': 'admin_69322@email.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOG...</msg>
-<var>${json}</var>
-<arg>${response.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.596121" elapsed="0.001341"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.598895" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOGRiZGRjYjU5N2I0YmI3YTE5NSIsImlhdCI6MTc3NTY4Nzg5OSwiZXhwIjoxNzc1Nzc0Mjk5fQ.JwKjh5Ms07o_N4QDF33iZ8_dAzWE3GyikNGWleMtsLw</msg>
-<var>${token}</var>
-<arg>${json['data']['token']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.598077" elapsed="0.000847"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.600778" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOGRiZGRjYjU5N2I0YmI3YTE5NSIsImlhdCI6MTc3NTY4Nzg5OSwiZXhwIjoxNzc1Nzc0Mjk5fQ.JwKjh5Ms07o_N4QDF33iZ8_dAzWE3GyikNGWleMtsLw'}</msg>
-<var>${headers}</var>
-<arg>Authorization=Bearer ${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.599854" elapsed="0.000989"/>
-</kw>
-<kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2026-04-08T19:38:19.615213" level="INFO">GET Request : url=http://localhost:3000/api/v1/movies 
- path_url=/api/v1/movies 
- headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZkOGRiZGRjYjU5N2I0YmI3YTE5NSIsImlhdCI6MTc3NTY4Nzg5OSwiZXhwIjoxNzc1Nzc0Mjk5fQ.JwKjh5Ms07o_N4QDF33iZ8_dAzWE3GyikNGWleMtsLw'} 
- body=None 
- </msg>
-<msg time="2026-04-08T19:38:19.615384" level="INFO">GET Response : url=http://localhost:3000/api/v1/movies 
- status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '4043', 'ETag': 'W/"fcb-SZXY4Skm0Z5GxX9y2Y7eh0ySoYQ"', 'Date': 'Wed, 08 Apr 2026 22:38:19 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"count":10,"pagination":{"next":{"page":2,"limit":10}},"data":[{"_id":"69d6d8dbddcb597b4bb7a192","title":"Filme Teste","synopsis":"Um filme de teste automatizado","director":"Diretor Teste","genres":["Drama"],"duration":120,"classification":"16","poster":"teste.jpg","releaseDate":"2026-04-08T00:00:00.000Z","id":"69d6d8dbddcb597b4bb7a192"},{"_id":"69cb39ea2e5a6e4d5231b649","title":"Teste Negativo 02","synopsis":"Negativo","director":"Senhor Erro","genres":["Suspense"],"duration":-10,"classification":"10","poster":"https://br.freepik.com/vetores-gratis/glitch-error-404-page_4121421.htm#fromView=keyword&amp;page=1&amp;position=0&amp;uuid=6096af48-a262-4e56-b867-3ccb628105ea&amp;query=Erro+404","releaseDate":"2026-03-31T00:00:00.000Z","id":"69cb39ea2e5a6e4d5231b649"},{"_id":"69cb328c2e5a6e4d5231b632","title":"Teste Negativo 02","synopsis":"Negativo","director":"Senhor Erro","genres":["Suspense"],"duration":0,"classification":"10","poster":"https://br.freepik.com/vetores-gratis/glitch-error-404-page_4121421.htm#fromView=keyword&amp;page=1&amp;position=0&amp;uuid=6096af48-a262-4e56-b867-3ccb628105ea&amp;query=Erro+404","releaseDate":"2026-03-31T00:00:00.000Z","id":"69cb328c2e5a6e4d5231b632"},{"_id":"69bb7164befb14d774e1d784","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos, mas precisa enfrentar decisões difíceis para salvar a humanidade.","director":"Carla Mendes","genres":["Ficção Científica","Drama"],"duration":0,"classification":"14 anos","poster":"https://exemplo.com/posters/sombras-do-amanha.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb7164befb14d774e1d784"},{"_id":"69bb715bbefb14d774e1d781","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos, mas precisa enfrentar decisões difíceis para salvar a humanidade.","director":"Carla Mendes","genres":["Ficção Científica","Drama"],"duration":0,"classification":"14 anos","poster":"https://exemplo.com/posters/sombras-do-amanha.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb715bbefb14d774e1d781"},{"_id":"69bb69b5befb14d774e1d726","title":"string","synopsis":"string","director":"string","genres":["string"],"duration":0,"classification":"string","poster":"string","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb69b5befb14d774e1d726"},{"_id":"69bb7010befb14d774e1d775","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos e precisa decidir até onde está disposta a ir para salvar vidas.","director":"Carla Mendes","genres":["Ficção CientíficA"],"duration":120,"classification":"14 anos","poster":"https://exemplo.com/poster.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb7010befb14d774e1d775"},{"_id":"69bb7836befb14d774e1d787","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos, mas precisa enfrentar decisões difíceis para salvar a humanidade.","director":"Carla Mendes","genres":["Ficção Científica","Drama"],"duration":0,"classification":"14 anos","poster":"https://exemplo.com/posters/sombras-do-amanha.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb7836befb14d774e1d787"},{"_id":"69bb70debefb14d774e1d77b","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos, mas precisa enfrentar decisões difíceis para salvar a humanidade.","director":"Carla Mendes","genres":["Ficção Científica","Drama"],"duration":-10,"classification":"14 anos","poster":"https://exemplo.com/posters/sombras-do-amanha.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb70debefb14d774e1d77b"},{"_id":"69b9d4b2befb14d774e1d660","title":"Filme Teste","synopsis":"Teste QA","director":"Jeniffer","genres":["Drama"],"duration":120,"classification":"12","poster":"teste.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69b9d4b2befb14d774e1d660"}]} 
- </msg>
-<msg time="2026-04-08T19:38:19.615592" level="INFO">${movies} = &lt;Response [200]&gt;</msg>
-<var>${movies}</var>
-<arg>api</arg>
-<arg>/api/v1/movies</arg>
-<arg>headers=${headers}</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.601233" elapsed="0.014397"/>
+<status status="PASS" start="2026-04-08T20:40:40.399626" elapsed="0.018216"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.617030" level="INFO">{"success":true,"count":10,"pagination":{"next":{"page":2,"limit":10}},"data":[{"_id":"69d6d8dbddcb597b4bb7a192","title":"Filme Teste","synopsis":"Um filme de teste automatizado","director":"Diretor Teste","genres":["Drama"],"duration":120,"classification":"16","poster":"teste.jpg","releaseDate":"2026-04-08T00:00:00.000Z","id":"69d6d8dbddcb597b4bb7a192"},{"_id":"69cb39ea2e5a6e4d5231b649","title":"Teste Negativo 02","synopsis":"Negativo","director":"Senhor Erro","genres":["Suspense"],"duration":-10,"classification":"10","poster":"https://br.freepik.com/vetores-gratis/glitch-error-404-page_4121421.htm#fromView=keyword&amp;page=1&amp;position=0&amp;uuid=6096af48-a262-4e56-b867-3ccb628105ea&amp;query=Erro+404","releaseDate":"2026-03-31T00:00:00.000Z","id":"69cb39ea2e5a6e4d5231b649"},{"_id":"69cb328c2e5a6e4d5231b632","title":"Teste Negativo 02","synopsis":"Negativo","director":"Senhor Erro","genres":["Suspense"],"duration":0,"classification":"10","poster":"https://br.freepik.com/vetores-gratis/glitch-error-404-page_4121421.htm#fromView=keyword&amp;page=1&amp;position=0&amp;uuid=6096af48-a262-4e56-b867-3ccb628105ea&amp;query=Erro+404","releaseDate":"2026-03-31T00:00:00.000Z","id":"69cb328c2e5a6e4d5231b632"},{"_id":"69bb7164befb14d774e1d784","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos, mas precisa enfrentar decisões difíceis para salvar a humanidade.","director":"Carla Mendes","genres":["Ficção Científica","Drama"],"duration":0,"classification":"14 anos","poster":"https://exemplo.com/posters/sombras-do-amanha.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb7164befb14d774e1d784"},{"_id":"69bb715bbefb14d774e1d781","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos, mas precisa enfrentar decisões difíceis para salvar a humanidade.","director":"Carla Mendes","genres":["Ficção Científica","Drama"],"duration":0,"classification":"14 anos","poster":"https://exemplo.com/posters/sombras-do-amanha.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb715bbefb14d774e1d781"},{"_id":"69bb69b5befb14d774e1d726","title":"string","synopsis":"string","director":"string","genres":["string"],"duration":0,"classification":"string","poster":"string","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb69b5befb14d774e1d726"},{"_id":"69bb7010befb14d774e1d775","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos e precisa decidir até onde está disposta a ir para salvar vidas.","director":"Carla Mendes","genres":["Ficção CientíficA"],"duration":120,"classification":"14 anos","poster":"https://exemplo.com/poster.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb7010befb14d774e1d775"},{"_id":"69bb7836befb14d774e1d787","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos, mas precisa enfrentar decisões difíceis para salvar a humanidade.","director":"Carla Mendes","genres":["Ficção Científica","Drama"],"duration":0,"classification":"14 anos","poster":"https://exemplo.com/posters/sombras-do-amanha.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb7836befb14d774e1d787"},{"_id":"69bb70debefb14d774e1d77b","title":"Sombras do Amanhã","synopsis":"Em um futuro próximo, uma cientista descobre uma forma de prever eventos catastróficos, mas precisa enfrentar decisões difíceis para salvar a humanidade.","director":"Carla Mendes","genres":["Ficção Científica","Drama"],"duration":-10,"classification":"14 anos","poster":"https://exemplo.com/posters/sombras-do-amanha.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69bb70debefb14d774e1d77b"},{"_id":"69b9d4b2befb14d774e1d660","title":"Filme Teste","synopsis":"Teste QA","director":"Jeniffer","genres":["Drama"],"duration":120,"classification":"12","poster":"teste.jpg","releaseDate":"2026-03-17T00:00:00.000Z","id":"69b9d4b2befb14d774e1d660"}]}</msg>
-<arg>${movies.text}</arg>
+<msg time="2026-04-08T20:40:40.418943" level="INFO">201</msg>
+<arg>${theater_res.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.616146" elapsed="0.001009"/>
+<status status="PASS" start="2026-04-08T20:40:40.418464" elapsed="0.000515"/>
 </kw>
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.618163" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${movies.status_code}</arg>
-<arg>200</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.617498" elapsed="0.000832"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.419630" level="INFO">{"success":true,"data":{"name":"Teatro_65617","capacity":100,"type":"standard","_id":"69d6e778ddcb597b4bb7a285","createdAt":"2026-04-08T23:40:40.412Z","updatedAt":"2026-04-08T23:40:40.412Z","__v":0,"id":"69d6e778ddcb597b4bb7a285"}}</msg>
+<arg>${theater_res.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.419244" elapsed="0.000417"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.619444" level="INFO">${movies_json} = {'success': True, 'count': 10, 'pagination': {'next': {'page': 2, 'limit': 10}}, 'data': [{'_id': '69d6d8dbddcb597b4bb7a192', 'title': 'Filme Teste', 'synopsis': 'Um filme de teste automatizado', 'dir...</msg>
-<var>${movies_json}</var>
-<arg>${movies.json()}</arg>
+<msg time="2026-04-08T20:40:40.420351" level="INFO">${theater_json} = {'success': True, 'data': {'name': 'Teatro_65617', 'capacity': 100, 'type': 'standard', '_id': '69d6e778ddcb597b4bb7a285', 'createdAt': '2026-04-08T23:40:40.412Z', 'updatedAt': '2026-04-08T23:40:40.41...</msg>
+<var>${theater_json}</var>
+<arg>${theater_res.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.618721" elapsed="0.000752"/>
+<status status="PASS" start="2026-04-08T20:40:40.419962" elapsed="0.000424"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.422061" level="INFO">${theater_id} = 69d6e778ddcb597b4bb7a285</msg>
+<var>${theater_id}</var>
+<arg>${theater_json['data']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.421654" elapsed="0.000424"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.422767" level="INFO">${session} = {'movie': '69d6e778ddcb597b4bb7a282', 'theater': '69d6e778ddcb597b4bb7a285', 'datetime': '2026-04-08T20:00:00.000Z', 'fullPrice': '30', 'halfPrice': '15'}</msg>
+<var>${session}</var>
+<arg>movie=${movie_id}</arg>
+<arg>theater=${theater_id}</arg>
+<arg>datetime=2026-04-08T20:00:00.000Z</arg>
+<arg>fullPrice=30</arg>
+<arg>halfPrice=15</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.422509" elapsed="0.000274"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-08T20:40:40.463139" level="INFO">POST Request : url=http://localhost:3000/api/v1/sessions 
+ path_url=/api/v1/sessions 
+ headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI3ZSIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.INv0t1X-tNQzfzfUZjdT3k5Zox6YSKoskOcOgXmUG1g', 'Content-Type': 'application/json', 'Content-Length': '154'} 
+ body=b'{"movie": "69d6e778ddcb597b4bb7a282", "theater": "69d6e778ddcb597b4bb7a285", "datetime": "2026-04-08T20:00:00.000Z", "fullPrice": "30", "halfPrice": "15"}' 
+ </msg>
+<msg time="2026-04-08T20:40:40.463213" level="INFO">POST Response : url=http://localhost:3000/api/v1/sessions 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '4754', 'ETag': 'W/"1292-oWi5Cpo4kdhoOeM9pXpecfKLf/U"', 'Date': 'Wed, 08 Apr 2026 23:40:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"movie":"69d6e778ddcb597b4bb7a282","theater":"69d6e778ddcb597b4bb7a285","datetime":"2026-04-08T20:00:00.000Z","fullPrice":30,"halfPrice":15,"seats":[{"row":"A","number":1,"status":"available"},{"row":"A","number":2,"status":"available"},{"row":"A","number":3,"status":"available"},{"row":"A","number":4,"status":"available"},{"row":"A","number":5,"status":"available"},{"row":"A","number":6,"status":"available"},{"row":"A","number":7,"status":"available"},{"row":"A","number":8,"status":"available"},{"row":"A","number":9,"status":"available"},{"row":"A","number":10,"status":"available"},{"row":"A","number":11,"status":"available"},{"row":"A","number":12,"status":"available"},{"row":"A","number":13,"status":"available"},{"row":"B","number":1,"status":"available"},{"row":"B","number":2,"status":"available"},{"row":"B","number":3,"status":"available"},{"row":"B","number":4,"status":"available"},{"row":"B","number":5,"status":"available"},{"row":"B","number":6,"status":"available"},{"row":"B","number":7,"status":"available"},{"row":"B","number":8,"status":"available"},{"row":"B","number":9,"status":"available"},{"row":"B","number":10,"status":"available"},{"row":"B","number":11,"status":"available"},{"row":"B","number":12,"status":"available"},{"row":"B","number":13,"status":"available"},{"row":"C","number":1,"status":"available"},{"row":"C","number":2,"status":"available"},{"row":"C","number":3,"status":"available"},{"row":"C","number":4,"status":"available"},{"row":"C","number":5,"status":"available"},{"row":"C","number":6,"status":"available"},{"row":"C","number":7,"status":"available"},{"row":"C","number":8,"status":"available"},{"row":"C","number":9,"status":"available"},{"row":"C","number":10,"status":"available"},{"row":"C","number":11,"status":"available"},{"row":"C","number":12,"status":"available"},{"row":"C","number":13,"status":"available"},{"row":"D","number":1,"status":"available"},{"row":"D","number":2,"status":"available"},{"row":"D","number":3,"status":"available"},{"row":"D","number":4,"status":"available"},{"row":"D","number":5,"status":"available"},{"row":"D","number":6,"status":"available"},{"row":"D","number":7,"status":"available"},{"row":"D","number":8,"status":"available"},{"row":"D","number":9,"status":"available"},{"row":"D","number":10,"status":"available"},{"row":"D","number":11,"status":"available"},{"row":"D","number":12,"status":"available"},{"row":"D","number":13,"status":"available"},{"row":"E","number":1,"status":"available"},{"row":"E","number":2,"status":"available"},{"row":"E","number":3,"status":"available"},{"row":"E","number":4,"status":"available"},{"row":"E","number":5,"status":"available"},{"row":"E","number":6,"status":"available"},{"row":"E","number":7,"status":"available"},{"row":"E","number":8,"status":"available"},{"row":"E","number":9,"status":"available"},{"row":"E","number":10,"status":"available"},{"row":"E","number":11,"status":"available"},{"row":"E","number":12,"status":"available"},{"row":"E","number":13,"status":"available"},{"row":"F","number":1,"status":"available"},{"row":"F","number":2,"status":"available"},{"row":"F","number":3,"status":"available"},{"row":"F","number":4,"status":"available"},{"row":"F","number":5,"status":"available"},{"row":"F","number":6,"status":"available"},{"row":"F","number":7,"status":"available"},{"row":"F","number":8,"status":"available"},{"row":"F","number":9,"status":"available"},{"row":"F","number":10,"status":"available"},{"row":"F","number":11,"status":"available"},{"row":"F","number":12,"status":"available"},{"row":"F","number":13,"status":"available"},{"row":"G","number":1,"status":"available"},{"row":"G","number":2,"status":"available"},{"row":"G","number":3,"status":"available"},{"row":"G","number":4,"status":"available"},{"row":"G","number":5,"status":"available"},{"row":"G","number":6,"status":"available"},{"row":"G","number":7,"status":"available"},{"row":"G","number":8,"status":"available"},{"row":"G","number":9,"status":"available"},{"row":"G","number":10,"status":"available"},{"row":"G","number":11,"status":"available"},{"row":"G","number":12,"status":"available"},{"row":"G","number":13,"status":"available"},{"row":"H","number":1,"status":"available"},{"row":"H","number":2,"status":"available"},{"row":"H","number":3,"status":"available"},{"row":"H","number":4,"status":"available"},{"row":"H","number":5,"status":"available"},{"row":"H","number":6,"status":"available"},{"row":"H","number":7,"status":"available"},{"row":"H","number":8,"status":"available"},{"row":"H","number":9,"status":"available"}],"_id":"69d6e778ddcb597b4bb7a28a","createdAt":"2026-04-08T23:40:40.442Z","updatedAt":"2026-04-08T23:40:40.442Z","__v":0,"id":"69d6e778ddcb597b4bb7a28a"}} 
+ </msg>
+<msg time="2026-04-08T20:40:40.463328" level="INFO">${session_res} = &lt;Response [201]&gt;</msg>
+<var>${session_res}</var>
+<arg>api</arg>
+<arg>/api/v1/sessions</arg>
+<arg>json=${session}</arg>
+<arg>headers=${admin_headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.423445" elapsed="0.039899"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.464192" level="INFO">{"success":true,"data":{"movie":"69d6e778ddcb597b4bb7a282","theater":"69d6e778ddcb597b4bb7a285","datetime":"2026-04-08T20:00:00.000Z","fullPrice":30,"halfPrice":15,"seats":[{"row":"A","number":1,"status":"available"},{"row":"A","number":2,"status":"available"},{"row":"A","number":3,"status":"available"},{"row":"A","number":4,"status":"available"},{"row":"A","number":5,"status":"available"},{"row":"A","number":6,"status":"available"},{"row":"A","number":7,"status":"available"},{"row":"A","number":8,"status":"available"},{"row":"A","number":9,"status":"available"},{"row":"A","number":10,"status":"available"},{"row":"A","number":11,"status":"available"},{"row":"A","number":12,"status":"available"},{"row":"A","number":13,"status":"available"},{"row":"B","number":1,"status":"available"},{"row":"B","number":2,"status":"available"},{"row":"B","number":3,"status":"available"},{"row":"B","number":4,"status":"available"},{"row":"B","number":5,"status":"available"},{"row":"B","number":6,"status":"available"},{"row":"B","number":7,"status":"available"},{"row":"B","number":8,"status":"available"},{"row":"B","number":9,"status":"available"},{"row":"B","number":10,"status":"available"},{"row":"B","number":11,"status":"available"},{"row":"B","number":12,"status":"available"},{"row":"B","number":13,"status":"available"},{"row":"C","number":1,"status":"available"},{"row":"C","number":2,"status":"available"},{"row":"C","number":3,"status":"available"},{"row":"C","number":4,"status":"available"},{"row":"C","number":5,"status":"available"},{"row":"C","number":6,"status":"available"},{"row":"C","number":7,"status":"available"},{"row":"C","number":8,"status":"available"},{"row":"C","number":9,"status":"available"},{"row":"C","number":10,"status":"available"},{"row":"C","number":11,"status":"available"},{"row":"C","number":12,"status":"available"},{"row":"C","number":13,"status":"available"},{"row":"D","number":1,"status":"available"},{"row":"D","number":2,"status":"available"},{"row":"D","number":3,"status":"available"},{"row":"D","number":4,"status":"available"},{"row":"D","number":5,"status":"available"},{"row":"D","number":6,"status":"available"},{"row":"D","number":7,"status":"available"},{"row":"D","number":8,"status":"available"},{"row":"D","number":9,"status":"available"},{"row":"D","number":10,"status":"available"},{"row":"D","number":11,"status":"available"},{"row":"D","number":12,"status":"available"},{"row":"D","number":13,"status":"available"},{"row":"E","number":1,"status":"available"},{"row":"E","number":2,"status":"available"},{"row":"E","number":3,"status":"available"},{"row":"E","number":4,"status":"available"},{"row":"E","number":5,"status":"available"},{"row":"E","number":6,"status":"available"},{"row":"E","number":7,"status":"available"},{"row":"E","number":8,"status":"available"},{"row":"E","number":9,"status":"available"},{"row":"E","number":10,"status":"available"},{"row":"E","number":11,"status":"available"},{"row":"E","number":12,"status":"available"},{"row":"E","number":13,"status":"available"},{"row":"F","number":1,"status":"available"},{"row":"F","number":2,"status":"available"},{"row":"F","number":3,"status":"available"},{"row":"F","number":4,"status":"available"},{"row":"F","number":5,"status":"available"},{"row":"F","number":6,"status":"available"},{"row":"F","number":7,"status":"available"},{"row":"F","number":8,"status":"available"},{"row":"F","number":9,"status":"available"},{"row":"F","number":10,"status":"available"},{"row":"F","number":11,"status":"available"},{"row":"F","number":12,"status":"available"},{"row":"F","number":13,"status":"available"},{"row":"G","number":1,"status":"available"},{"row":"G","number":2,"status":"available"},{"row":"G","number":3,"status":"available"},{"row":"G","number":4,"status":"available"},{"row":"G","number":5,"status":"available"},{"row":"G","number":6,"status":"available"},{"row":"G","number":7,"status":"available"},{"row":"G","number":8,"status":"available"},{"row":"G","number":9,"status":"available"},{"row":"G","number":10,"status":"available"},{"row":"G","number":11,"status":"available"},{"row":"G","number":12,"status":"available"},{"row":"G","number":13,"status":"available"},{"row":"H","number":1,"status":"available"},{"row":"H","number":2,"status":"available"},{"row":"H","number":3,"status":"available"},{"row":"H","number":4,"status":"available"},{"row":"H","number":5,"status":"available"},{"row":"H","number":6,"status":"available"},{"row":"H","number":7,"status":"available"},{"row":"H","number":8,"status":"available"},{"row":"H","number":9,"status":"available"}],"_id":"69d6e778ddcb597b4bb7a28a","createdAt":"2026-04-08T23:40:40.442Z","updatedAt":"2026-04-08T23:40:40.442Z","__v":0,"id":"69d6e778ddcb597b4bb7a28a"}}</msg>
+<arg>${session_res.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.463614" elapsed="0.000669"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.465457" level="INFO">${session_json} = {'success': True, 'data': {'movie': '69d6e778ddcb597b4bb7a282', 'theater': '69d6e778ddcb597b4bb7a285', 'datetime': '2026-04-08T20:00:00.000Z', 'fullPrice': 30, 'halfPrice': 15, 'seats': [{'row': 'A', ...</msg>
+<var>${session_json}</var>
+<arg>${session_res.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.464605" elapsed="0.000884"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.466441" level="INFO">${session_id} = 69d6e778ddcb597b4bb7a28a</msg>
+<var>${session_id}</var>
+<arg>${session_json['data']['_id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.465866" elapsed="0.000602"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-04-08T20:40:40.467179" level="INFO">${random_user} = 78204</msg>
+<var>${random_user}</var>
+<arg>5</arg>
+<arg>0123456789</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.467037" elapsed="0.000158"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.467587" level="INFO">${user_email} = user_78204@email.com</msg>
+<var>${user_email}</var>
+<arg>user_${random_user}@email.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.467410" elapsed="0.000191"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.468140" level="INFO">${user} = {'name': 'User Teste', 'email': 'user_78204@email.com', 'password': '12345678'}</msg>
+<var>${user}</var>
+<arg>name=User Teste</arg>
+<arg>email=${user_email}</arg>
+<arg>password=12345678</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.467925" elapsed="0.000231"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-08T20:40:40.588203" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/register 
+ path_url=/api/v1/auth/register 
+ headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '79', 'Content-Type': 'application/json'} 
+ body=b'{"name": "User Teste", "email": "user_78204@email.com", "password": "12345678"}' 
+ </msg>
+<msg time="2026-04-08T20:40:40.588270" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/register 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '305', 'ETag': 'W/"131-HMWHjTb8BiZRtvmE2YBJTzFjJeQ"', 'Date': 'Wed, 08 Apr 2026 23:40:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"69d6e778ddcb597b4bb7a28d","name":"User Teste","email":"user_78204@email.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI4ZCIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.gPMMvFyDVnbjaZHA5yuwiOpMvpLpJD8lLMRpu-DUOrY"}} 
+ </msg>
+<arg>api</arg>
+<arg>/api/v1/auth/register</arg>
+<arg>json=${user}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.468369" elapsed="0.119950"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.589110" level="INFO">${user_login} = {'email': 'user_78204@email.com', 'password': '12345678'}</msg>
+<var>${user_login}</var>
+<arg>email=${user_email}</arg>
+<arg>password=12345678</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.588794" elapsed="0.000333"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-08T20:40:40.737420" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+ path_url=/api/v1/auth/login 
+ headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '57', 'Content-Type': 'application/json'} 
+ body=b'{"email": "user_78204@email.com", "password": "12345678"}' 
+ </msg>
+<msg time="2026-04-08T20:40:40.737565" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '305', 'ETag': 'W/"131-HMWHjTb8BiZRtvmE2YBJTzFjJeQ"', 'Date': 'Wed, 08 Apr 2026 23:40:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"69d6e778ddcb597b4bb7a28d","name":"User Teste","email":"user_78204@email.com","role":"user","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI4ZCIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.gPMMvFyDVnbjaZHA5yuwiOpMvpLpJD8lLMRpu-DUOrY"}} 
+ </msg>
+<msg time="2026-04-08T20:40:40.737800" level="INFO">${user_res} = &lt;Response [200]&gt;</msg>
+<var>${user_res}</var>
+<arg>api</arg>
+<arg>/api/v1/auth/login</arg>
+<arg>json=${user_login}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.589418" elapsed="0.148426"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.740409" level="INFO">${user_json} = {'success': True, 'data': {'_id': '69d6e778ddcb597b4bb7a28d', 'name': 'User Teste', 'email': 'user_78204@email.com', 'role': 'user', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4...</msg>
+<var>${user_json}</var>
+<arg>${user_res.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.738626" elapsed="0.001851"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.742406" level="INFO">${user_token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI4ZCIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.gPMMvFyDVnbjaZHA5yuwiOpMvpLpJD8lLMRpu-DUOrY</msg>
+<var>${user_token}</var>
+<arg>${user_json['data']['token']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.741103" elapsed="0.001519"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.744369" level="INFO">${user_headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI4ZCIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.gPMMvFyDVnbjaZHA5yuwiOpMvpLpJD8lLMRpu-DUOrY', ...</msg>
+<var>${user_headers}</var>
+<arg>Authorization=Bearer ${user_token}</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.743315" elapsed="0.001145"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2026-04-08T20:40:40.745478" level="INFO">${random_seat} = 4</msg>
+<var>${random_seat}</var>
+<arg>1</arg>
+<arg>123456789</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.745143" elapsed="0.000412"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.747249" level="INFO">${seat_number} = 4</msg>
+<var>${seat_number}</var>
+<arg>${random_seat}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.746605" elapsed="0.000694"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.748981" level="INFO">${seat} = {'row': 'A', 'number': 4, 'type': 'full'}</msg>
+<var>${seat}</var>
+<arg>row=A</arg>
+<arg>number=${seat_number}</arg>
+<arg>type=full</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.747895" elapsed="0.001161"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.750111" level="INFO">${seats} = [{'row': 'A', 'number': 4, 'type': 'full'}]</msg>
+<var>${seats}</var>
+<arg>${seat}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.749569" elapsed="0.000592"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.751484" level="INFO">${reservation} = {'session': '69d6e778ddcb597b4bb7a28a', 'seats': [{'row': 'A', 'number': 4, 'type': 'full'}], 'paymentMethod': 'credit_card'}</msg>
+<var>${reservation}</var>
+<arg>session=${session_id}</arg>
+<arg>seats=${seats}</arg>
+<arg>paymentMethod=credit_card</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.750743" elapsed="0.000784"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-08T20:40:40.855583" level="INFO">POST Request : url=http://localhost:3000/api/v1/reservations 
+ path_url=/api/v1/reservations 
+ headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDZlNzc4ZGRjYjU5N2I0YmI3YTI4ZCIsImlhdCI6MTc3NTY5MTY0MCwiZXhwIjoxNzc1Nzc4MDQwfQ.gPMMvFyDVnbjaZHA5yuwiOpMvpLpJD8lLMRpu-DUOrY', 'Content-Type': 'application/json', 'Content-Length': '125'} 
+ body=b'{"session": "69d6e778ddcb597b4bb7a28a", "seats": [{"row": "A", "number": 4, "type": "full"}], "paymentMethod": "credit_card"}' 
+ </msg>
+<msg time="2026-04-08T20:40:40.855694" level="INFO">POST Response : url=http://localhost:3000/api/v1/reservations 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '5248', 'ETag': 'W/"1480-7o9HrtbCgk6N+9ibWIQJsFXhP6I"', 'Date': 'Wed, 08 Apr 2026 23:40:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"user":"69d6e778ddcb597b4bb7a28d","session":{"_id":"69d6e778ddcb597b4bb7a28a","movie":{"_id":"69d6e778ddcb597b4bb7a282","title":"Filme Reserva","poster":"teste.jpg","id":"69d6e778ddcb597b4bb7a282"},"theater":{"_id":"69d6e778ddcb597b4bb7a285","name":"Teatro_65617","id":"69d6e778ddcb597b4bb7a285"},"datetime":"2026-04-08T20:00:00.000Z","fullPrice":30,"halfPrice":15,"seats":[{"row":"A","number":1,"status":"available"},{"row":"A","number":2,"status":"available"},{"row":"A","number":3,"status":"available"},{"row":"A","number":4,"status":"occupied"},{"row":"A","number":5,"status":"available"},{"row":"A","number":6,"status":"available"},{"row":"A","number":7,"status":"available"},{"row":"A","number":8,"status":"available"},{"row":"A","number":9,"status":"available"},{"row":"A","number":10,"status":"available"},{"row":"A","number":11,"status":"available"},{"row":"A","number":12,"status":"available"},{"row":"A","number":13,"status":"available"},{"row":"B","number":1,"status":"available"},{"row":"B","number":2,"status":"available"},{"row":"B","number":3,"status":"available"},{"row":"B","number":4,"status":"available"},{"row":"B","number":5,"status":"available"},{"row":"B","number":6,"status":"available"},{"row":"B","number":7,"status":"available"},{"row":"B","number":8,"status":"available"},{"row":"B","number":9,"status":"available"},{"row":"B","number":10,"status":"available"},{"row":"B","number":11,"status":"available"},{"row":"B","number":12,"status":"available"},{"row":"B","number":13,"status":"available"},{"row":"C","number":1,"status":"available"},{"row":"C","number":2,"status":"available"},{"row":"C","number":3,"status":"available"},{"row":"C","number":4,"status":"available"},{"row":"C","number":5,"status":"available"},{"row":"C","number":6,"status":"available"},{"row":"C","number":7,"status":"available"},{"row":"C","number":8,"status":"available"},{"row":"C","number":9,"status":"available"},{"row":"C","number":10,"status":"available"},{"row":"C","number":11,"status":"available"},{"row":"C","number":12,"status":"available"},{"row":"C","number":13,"status":"available"},{"row":"D","number":1,"status":"available"},{"row":"D","number":2,"status":"available"},{"row":"D","number":3,"status":"available"},{"row":"D","number":4,"status":"available"},{"row":"D","number":5,"status":"available"},{"row":"D","number":6,"status":"available"},{"row":"D","number":7,"status":"available"},{"row":"D","number":8,"status":"available"},{"row":"D","number":9,"status":"available"},{"row":"D","number":10,"status":"available"},{"row":"D","number":11,"status":"available"},{"row":"D","number":12,"status":"available"},{"row":"D","number":13,"status":"available"},{"row":"E","number":1,"status":"available"},{"row":"E","number":2,"status":"available"},{"row":"E","number":3,"status":"available"},{"row":"E","number":4,"status":"available"},{"row":"E","number":5,"status":"available"},{"row":"E","number":6,"status":"available"},{"row":"E","number":7,"status":"available"},{"row":"E","number":8,"status":"available"},{"row":"E","number":9,"status":"available"},{"row":"E","number":10,"status":"available"},{"row":"E","number":11,"status":"available"},{"row":"E","number":12,"status":"available"},{"row":"E","number":13,"status":"available"},{"row":"F","number":1,"status":"available"},{"row":"F","number":2,"status":"available"},{"row":"F","number":3,"status":"available"},{"row":"F","number":4,"status":"available"},{"row":"F","number":5,"status":"available"},{"row":"F","number":6,"status":"available"},{"row":"F","number":7,"status":"available"},{"row":"F","number":8,"status":"available"},{"row":"F","number":9,"status":"available"},{"row":"F","number":10,"status":"available"},{"row":"F","number":11,"status":"available"},{"row":"F","number":12,"status":"available"},{"row":"F","number":13,"status":"available"},{"row":"G","number":1,"status":"available"},{"row":"G","number":2,"status":"available"},{"row":"G","number":3,"status":"available"},{"row":"G","number":4,"status":"available"},{"row":"G","number":5,"status":"available"},{"row":"G","number":6,"status":"available"},{"row":"G","number":7,"status":"available"},{"row":"G","number":8,"status":"available"},{"row":"G","number":9,"status":"available"},{"row":"G","number":10,"status":"available"},{"row":"G","number":11,"status":"available"},{"row":"G","number":12,"status":"available"},{"row":"G","number":13,"status":"available"},{"row":"H","number":1,"status":"available"},{"row":"H","number":2,"status":"available"},{"row":"H","number":3,"status":"available"},{"row":"H","number":4,"status":"available"},{"row":"H","number":5,"status":"available"},{"row":"H","number":6,"status":"available"},{"row":"H","number":7,"status":"available"},{"row":"H","number":8,"status":"available"},{"row":"H","number":9,"status":"available"}],"createdAt":"2026-04-08T23:40:40.442Z","updatedAt":"2026-04-08T23:40:40.809Z","__v":0,"id":"69d6e778ddcb597b4bb7a28a"},"seats":[{"row":"A","number":4,"type":"full"}],"totalPrice":30,"status":"confirmed","paymentStatus":"completed","paymentMethod":"credit_card","paymentDate":"2026-04-08T23:40:40.767Z","_id":"69d6e778ddcb597b4bb7a292","createdAt":"2026-04-08T23:40:40.767Z","updatedAt":"2026-04-08T23:40:40.767Z","__v":0}} 
+ </msg>
+<msg time="2026-04-08T20:40:40.855885" level="INFO">${reserve_res} = &lt;Response [201]&gt;</msg>
+<var>${reserve_res}</var>
+<arg>api</arg>
+<arg>/api/v1/reservations</arg>
+<arg>json=${reservation}</arg>
+<arg>headers=${user_headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.752066" elapsed="0.103849"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.857882" level="INFO">{"success":true,"data":{"user":"69d6e778ddcb597b4bb7a28d","session":{"_id":"69d6e778ddcb597b4bb7a28a","movie":{"_id":"69d6e778ddcb597b4bb7a282","title":"Filme Reserva","poster":"teste.jpg","id":"69d6e778ddcb597b4bb7a282"},"theater":{"_id":"69d6e778ddcb597b4bb7a285","name":"Teatro_65617","id":"69d6e778ddcb597b4bb7a285"},"datetime":"2026-04-08T20:00:00.000Z","fullPrice":30,"halfPrice":15,"seats":[{"row":"A","number":1,"status":"available"},{"row":"A","number":2,"status":"available"},{"row":"A","number":3,"status":"available"},{"row":"A","number":4,"status":"occupied"},{"row":"A","number":5,"status":"available"},{"row":"A","number":6,"status":"available"},{"row":"A","number":7,"status":"available"},{"row":"A","number":8,"status":"available"},{"row":"A","number":9,"status":"available"},{"row":"A","number":10,"status":"available"},{"row":"A","number":11,"status":"available"},{"row":"A","number":12,"status":"available"},{"row":"A","number":13,"status":"available"},{"row":"B","number":1,"status":"available"},{"row":"B","number":2,"status":"available"},{"row":"B","number":3,"status":"available"},{"row":"B","number":4,"status":"available"},{"row":"B","number":5,"status":"available"},{"row":"B","number":6,"status":"available"},{"row":"B","number":7,"status":"available"},{"row":"B","number":8,"status":"available"},{"row":"B","number":9,"status":"available"},{"row":"B","number":10,"status":"available"},{"row":"B","number":11,"status":"available"},{"row":"B","number":12,"status":"available"},{"row":"B","number":13,"status":"available"},{"row":"C","number":1,"status":"available"},{"row":"C","number":2,"status":"available"},{"row":"C","number":3,"status":"available"},{"row":"C","number":4,"status":"available"},{"row":"C","number":5,"status":"available"},{"row":"C","number":6,"status":"available"},{"row":"C","number":7,"status":"available"},{"row":"C","number":8,"status":"available"},{"row":"C","number":9,"status":"available"},{"row":"C","number":10,"status":"available"},{"row":"C","number":11,"status":"available"},{"row":"C","number":12,"status":"available"},{"row":"C","number":13,"status":"available"},{"row":"D","number":1,"status":"available"},{"row":"D","number":2,"status":"available"},{"row":"D","number":3,"status":"available"},{"row":"D","number":4,"status":"available"},{"row":"D","number":5,"status":"available"},{"row":"D","number":6,"status":"available"},{"row":"D","number":7,"status":"available"},{"row":"D","number":8,"status":"available"},{"row":"D","number":9,"status":"available"},{"row":"D","number":10,"status":"available"},{"row":"D","number":11,"status":"available"},{"row":"D","number":12,"status":"available"},{"row":"D","number":13,"status":"available"},{"row":"E","number":1,"status":"available"},{"row":"E","number":2,"status":"available"},{"row":"E","number":3,"status":"available"},{"row":"E","number":4,"status":"available"},{"row":"E","number":5,"status":"available"},{"row":"E","number":6,"status":"available"},{"row":"E","number":7,"status":"available"},{"row":"E","number":8,"status":"available"},{"row":"E","number":9,"status":"available"},{"row":"E","number":10,"status":"available"},{"row":"E","number":11,"status":"available"},{"row":"E","number":12,"status":"available"},{"row":"E","number":13,"status":"available"},{"row":"F","number":1,"status":"available"},{"row":"F","number":2,"status":"available"},{"row":"F","number":3,"status":"available"},{"row":"F","number":4,"status":"available"},{"row":"F","number":5,"status":"available"},{"row":"F","number":6,"status":"available"},{"row":"F","number":7,"status":"available"},{"row":"F","number":8,"status":"available"},{"row":"F","number":9,"status":"available"},{"row":"F","number":10,"status":"available"},{"row":"F","number":11,"status":"available"},{"row":"F","number":12,"status":"available"},{"row":"F","number":13,"status":"available"},{"row":"G","number":1,"status":"available"},{"row":"G","number":2,"status":"available"},{"row":"G","number":3,"status":"available"},{"row":"G","number":4,"status":"available"},{"row":"G","number":5,"status":"available"},{"row":"G","number":6,"status":"available"},{"row":"G","number":7,"status":"available"},{"row":"G","number":8,"status":"available"},{"row":"G","number":9,"status":"available"},{"row":"G","number":10,"status":"available"},{"row":"G","number":11,"status":"available"},{"row":"G","number":12,"status":"available"},{"row":"G","number":13,"status":"available"},{"row":"H","number":1,"status":"available"},{"row":"H","number":2,"status":"available"},{"row":"H","number":3,"status":"available"},{"row":"H","number":4,"status":"available"},{"row":"H","number":5,"status":"available"},{"row":"H","number":6,"status":"available"},{"row":"H","number":7,"status":"available"},{"row":"H","number":8,"status":"available"},{"row":"H","number":9,"status":"available"}],"createdAt":"2026-04-08T23:40:40.442Z","updatedAt":"2026-04-08T23:40:40.809Z","__v":0,"id":"69d6e778ddcb597b4bb7a28a"},"seats":[{"row":"A","number":4,"type":"full"}],"totalPrice":30,"status":"confirmed","paymentStatus":"completed","paymentMethod":"credit_card","paymentDate":"2026-04-08T23:40:40.767Z","_id":"69d6e778ddcb597b4bb7a292","createdAt":"2026-04-08T23:40:40.767Z","updatedAt":"2026-04-08T23:40:40.767Z","__v":0}}</msg>
+<arg>${reserve_res.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.856437" elapsed="0.001582"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.859991" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${reserve_res.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.858495" elapsed="0.001628"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-08T20:40:40.861804" level="INFO">${reserve_json} = {'success': True, 'data': {'user': '69d6e778ddcb597b4bb7a28d', 'session': {'_id': '69d6e778ddcb597b4bb7a28a', 'movie': {'_id': '69d6e778ddcb597b4bb7a282', 'title': 'Filme Reserva', 'poster': 'teste.jp...</msg>
+<var>${reserve_json}</var>
+<arg>${reserve_res.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-08T20:40:40.860801" elapsed="0.001038"/>
 </kw>
 <kw name="Should Not Be Empty" owner="BuiltIn">
-<msg time="2026-04-08T19:38:19.620125" level="INFO">Length is 4.</msg>
-<arg>${movies_json}</arg>
+<msg time="2026-04-08T20:40:40.863250" level="INFO">Length is 2.</msg>
+<arg>${reserve_json}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<status status="PASS" start="2026-04-08T19:38:19.619760" elapsed="0.000415"/>
+<status status="PASS" start="2026-04-08T20:40:40.862769" elapsed="0.000530"/>
 </kw>
-<status status="PASS" start="2026-04-08T19:38:19.314072" elapsed="0.306329"/>
+<status status="PASS" start="2026-04-08T20:40:40.101977" elapsed="0.761725"/>
 </test>
-<status status="PASS" start="2026-04-08T19:38:18.688067" elapsed="0.933471"/>
+<status status="PASS" start="2026-04-08T20:40:39.763728" elapsed="1.101298"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Movies" id="s1" pass="2" fail="0" skip="0">Movies</stat>
+<stat name="Reserva" id="s1" pass="1" fail="0" skip="0">Reserva</stat>
 </suite>
 </statistics>
 <errors>

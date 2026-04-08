@@ -31,11 +31,11 @@ Listar Filmes
     ${json}=    Set Variable    ${response.json()}
     ${token}=    Set Variable    ${json['data']['token']}
 
-    # 🔥 header com token
+    
     ${headers}=    Create Dictionary
     ...    Authorization=Bearer ${token}
 
-    # 🎬 listar filmes
+    
     ${movies}=    GET On Session    api    /api/v1/movies    headers=${headers}
 
     Log    ${movies.text}

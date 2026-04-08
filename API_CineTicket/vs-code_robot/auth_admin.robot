@@ -39,7 +39,6 @@ Fluxo Admin Completo
 
     ${json}=    Set Variable    ${response.json()}
 
-    # 🔥 pega o token (ajustar nome se necessário)
     ${token}=    Set Variable    ${json['data']['token']}
 
     Log    TOKEN ADMIN: ${token}

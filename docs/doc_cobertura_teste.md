@@ -1,38 +1,70 @@
 ## Cobertura de Testes
 
-A cobertura de testes da API foi analisada com base em critérios de *Input Coverage*, seguindo boas práticas de testes para APIs REST.
+A cobertura de testes da API foi analisada com base na automação implementada utilizando Robot Framework.
 
-Atualmente, a automação contempla:
+### Cobertura Atual
 
-- **Path Coverage:** 15% dos endpoints cobertos (5 de 33)  
-- **Operator Coverage:** 50% dos métodos HTTP cobertos (GET e POST)  
+Atualmente, os testes automatizados contemplam os seguintes cenários:
 
-Os testes implementados priorizam endpoints críticos, como autenticação e consulta de dados, garantindo a validação das principais funcionalidades da aplicação.
+#### Autenticação
+- Registro de usuário  
+- Login com credenciais válidas  
+- Geração de token JWT  
 
-Além dos cenários positivos, também foram implementados testes negativos, com foco na validação de regras de negócio e no tratamento de dados inválidos.
+#### Administração
+- Criação de usuário administrador  
 
-Foram realizados testes com retornos esperados de erro (como status 400), especialmente nos endpoints de autenticação e reservas, assegurando que a API responda corretamente a entradas inválidas.
+#### Filmes
+- Criação de filmes (endpoint protegido)  
+- Listagem de filmes  
+
+#### Reservas (Fluxo End-to-End)
+Foi implementado um fluxo completo validando a principal jornada do sistema:
+- Criação de filme  
+- Criação de teatro  
+- Criação de sessão  
+- Registro e login de usuário  
+- Criação de reserva  
+
+Esse fluxo valida a integração entre múltiplos serviços da API, garantindo o funcionamento do sistema de ponta a ponta.
+
+---
+
+### Tipo de Cobertura
+
+- **Path Coverage:** endpoints principais de autenticação, filmes e reservas  
+- **Operator Coverage:** métodos GET e POST  
+- **Fluxo E2E:** validado com sucesso  
+
+---
+
+### Pontos Fortes
+
+- Validação de fluxos críticos do sistema  
+- Uso de dados dinâmicos (evitando conflitos de teste)  
+- Testes de integração entre múltiplos endpoints  
+- Execução de cenário completo de negócio  
 
 ---
 
 ### Limitações Atuais
 
-Ainda não foram explorados os seguintes cenários:
+Ainda não foram automatizados:
 
-- Métodos de escrita (PUT e DELETE)  
-- Outros códigos de status HTTP  
-- Fluxos completos de negócio (ex: criação de reserva ponta a ponta)  
+- Testes negativos (erros de autenticação, validação de dados)  
+- Métodos PUT e DELETE  
+- Validação detalhada do corpo da resposta  
+- Testes específicos de endpoints individuais (GET por ID)  
 
 ---
 
 ### Próximos Passos
 
-Como evolução, pretende-se:
+Para evolução da cobertura, recomenda-se:
 
-- Aumentar a cobertura de endpoints  
-- Incluir testes para métodos de escrita (PUT e DELETE)  
-- Ampliar cenários negativos  
-- Validar de forma mais abrangente os parâmetros de entrada  
-- Implementar testes de fluxo completo (end-to-end)  
+- Implementar testes negativos  
+- Adicionar validação de schema/resposta  
+- Criar testes isolados por endpoint  
+- Expandir cenários de erro e borda  
 
-O objetivo é elevar o nível de confiabilidade e robustez da API.
+O objetivo é aumentar a confiabilidade, robustez e qualidade da API.

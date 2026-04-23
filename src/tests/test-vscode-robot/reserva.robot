@@ -11,7 +11,7 @@ ${BASE_URL}    http://localhost:3000
 Fluxo Completo Reserva
     Create Session    api    ${BASE_URL}
 
-    # 🔐 ADMIN
+    # ADMIN
     ${random}=    Generate Random String    5    0123456789
     ${email}=    Set Variable    admin_${random}@email.com
 
@@ -35,7 +35,7 @@ Fluxo Completo Reserva
     ...    Authorization=Bearer ${admin_token}
     ...    Content-Type=application/json
 
-    # 🎬 CRIAR FILME
+    # CRIAR FILME
     ${genres}=    Create List    Drama
 
     ${movie}=    Create Dictionary
@@ -61,7 +61,7 @@ Fluxo Completo Reserva
     ${movie_json}=    Set Variable    ${movie_res.json()}
     ${movie_id}=    Set Variable    ${movie_json['data']['_id']}
 
-    # 🏢 CRIAR TEATRO (FINAL CORRETO)
+    # CRIAR TEATRO (FINAL CORRETO)
     ${random_theater}=    Generate Random String    5    0123456789
     ${theater_name}=    Set Variable    Teatro_${random_theater}
 
@@ -84,7 +84,7 @@ Fluxo Completo Reserva
     ${theater_json}=    Set Variable    ${theater_res.json()}
     ${theater_id}=    Set Variable    ${theater_json['data']['_id']}
 
-    # 🕒 CRIAR SESSÃO
+    # CRIAR SESSÃO
     ${session}=    Create Dictionary
     ...    movie=${movie_id}
     ...    theater=${theater_id}
@@ -103,7 +103,7 @@ Fluxo Completo Reserva
     ${session_json}=    Set Variable    ${session_res.json()}
     ${session_id}=    Set Variable    ${session_json['data']['_id']}
 
-    # 👤 USER
+    # USER
     ${random_user}=    Generate Random String    5    0123456789
     ${user_email}=    Set Variable    user_${random_user}@email.com
 
@@ -127,7 +127,7 @@ Fluxo Completo Reserva
     ...    Authorization=Bearer ${user_token}
     ...    Content-Type=application/json
 
-    # 🎟️ RESERVA
+    # RESERVA
     ${random_seat}=    Generate Random String    1    123456789
     ${seat_number}=    Convert To Integer    ${random_seat}
 

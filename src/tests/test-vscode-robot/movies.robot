@@ -11,7 +11,7 @@ ${BASE_URL}    http://localhost:3000
 Criar Filme
     Create Session    api    ${BASE_URL}
 
-    # 🔹 criar admin
+    # criar admin
     ${random}=    Generate Random String    5    0123456789
     ${email}=    Set Variable    admin_${random}@email.com
 
@@ -22,7 +22,7 @@ Criar Filme
 
     POST On Session    api    /api/v1/setup/admin    json=${admin_body}
 
-    # 🔹 login admin
+    # login admin
     ${login_body}=    Create Dictionary
     ...    email=${email}
     ...    password=admin123
@@ -35,7 +35,7 @@ Criar Filme
     ${headers}=    Create Dictionary
     ...    Authorization=Bearer ${token}
 
-    # 🎬 criar filme
+    # criar filme
     ${genres}=    Create List    Drama
 
     ${movie}=    Create Dictionary
@@ -62,7 +62,7 @@ Criar Filme
 Listar Filmes
     Create Session    api    ${BASE_URL}
 
-    # 🔹 criar admin
+    # criar admin
     ${random}=    Generate Random String    5    0123456789
     ${email}=    Set Variable    admin_${random}@email.com
 
@@ -73,7 +73,7 @@ Listar Filmes
 
     POST On Session    api    /api/v1/setup/admin    json=${admin_body}
 
-    # 🔹 login admin
+    # login admin
     ${login_body}=    Create Dictionary
     ...    email=${email}
     ...    password=admin123
@@ -86,7 +86,7 @@ Listar Filmes
     ${headers}=    Create Dictionary
     ...    Authorization=Bearer ${token}
 
-    # 🎬 listar filmes
+    # listar filmes
     ${movies}=    GET On Session    api    /api/v1/movies    headers=${headers}
 
     Log    ${movies.text}

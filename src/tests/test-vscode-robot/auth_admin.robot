@@ -26,7 +26,7 @@ Fluxo Admin Completo
 
     Should Be True    ${create_admin.status_code} == 200 or ${create_admin.status_code} == 201
 
-    # 🔹 login admin
+    # login admin
     ${login_body}=    Create Dictionary
     ...    email=${email}
     ...    password=admin123

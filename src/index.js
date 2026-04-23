@@ -10,6 +10,7 @@ const { notFound, errorHandler } = require('./middleware/error');
 dotenv.config();
 console.log("MONGODB_URI:", process.env.MONGODB_URI);
 // Create Express app
+
 const app = express();
 
 // Middleware
@@ -49,6 +50,9 @@ const PORT = process.env.PORT || 3000;
 // Connect to MongoDB and start server
 connectDB().then(() => {
   app.listen(PORT, () => {
+    console.log("JWT_SECRET:", process.env.JWT_SECRET);
+    console.log("MONGODB_URI:", process.env.MONGODB_URI);
+    console.log("PORT:", process.env.PORT);
     console.log(`Server is running on port ${PORT}`);
     console.log(`API available at http://localhost:${PORT}/api/v1`);
     console.log(`API documentation available at http://localhost:${PORT}/api/v1/docs`);

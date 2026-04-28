@@ -1,181 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-22T23:10:32.620003" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-24T21:51:19.084740" rpa="false" schemaversion="5">
 <suite id="s1" name="Reserva Neg" source="C:\Users\jeniffer.neves\source\repos\API_CineTicket_Jeniffer_Ferraz\src\tests\test-vscode-robot\reserva_neg.robot">
 <test id="s1-t1" name="Criar reserva sem token" line="11">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:32.817799" level="INFO">Creating Session using : alias=api, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2026-04-24T21:51:19.706270" level="INFO">Creating Session using : alias=api, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>api</arg>
 <arg>${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2026-04-22T23:10:32.817634" elapsed="0.000311"/>
+<status status="PASS" start="2026-04-24T21:51:19.705818" elapsed="0.000861"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-22T23:10:32.820399" level="INFO">${reservation} = {'session': '123', 'seats': []}</msg>
+<msg time="2026-04-24T21:51:19.708920" level="INFO">${reservation} = {'session': '123', 'seats': []}</msg>
 <var>${reservation}</var>
 <arg>session=123</arg>
 <arg>seats=@{EMPTY}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-22T23:10:32.818684" elapsed="0.001784"/>
+<status status="PASS" start="2026-04-24T21:51:19.707358" elapsed="0.001622"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:32.836979" level="INFO">POST Request : url=http://localhost:3000/api/v1/reservations 
+<msg time="2026-04-24T21:51:19.754244" level="INFO">POST Request : url=http://localhost:3000/api/v1/reservations 
  path_url=/api/v1/reservations 
  headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '31', 'Content-Type': 'application/json'} 
  body=b'{"session": "123", "seats": []}' 
  </msg>
-<msg time="2026-04-22T23:10:32.837149" level="INFO">POST Response : url=http://localhost:3000/api/v1/reservations 
+<msg time="2026-04-24T21:51:19.754461" level="INFO">POST Response : url=http://localhost:3000/api/v1/reservations 
  status=401, reason=Unauthorized 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '65', 'ETag': 'W/"41-TJq3LYiwj1On+7IZ17oLU5tM1Zs"', 'Date': 'Thu, 23 Apr 2026 02:10:32 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '65', 'ETag': 'W/"41-TJq3LYiwj1On+7IZ17oLU5tM1Zs"', 'Date': 'Sat, 25 Apr 2026 00:51:19 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":false,"message":"Not authorized to access this route"} 
  </msg>
-<msg time="2026-04-22T23:10:32.837341" level="INFO">${res} = &lt;Response [401]&gt;</msg>
+<msg time="2026-04-24T21:51:19.754735" level="INFO">${res} = &lt;Response [401]&gt;</msg>
 <var>${res}</var>
 <arg>api</arg>
 <arg>/api/v1/reservations</arg>
 <arg>json=${reservation}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-22T23:10:32.820928" elapsed="0.016454"/>
+<status status="PASS" start="2026-04-24T21:51:19.709519" elapsed="0.045262"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-04-22T23:10:32.839958" level="INFO">Argument types are:
+<msg time="2026-04-24T21:51:19.757153" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${res.status_code}</arg>
 <arg>401</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-04-22T23:10:32.838181" elapsed="0.001837"/>
+<status status="PASS" start="2026-04-24T21:51:19.755582" elapsed="0.001794"/>
 </kw>
-<status status="PASS" start="2026-04-22T23:10:32.816602" elapsed="0.023919"/>
+<status status="PASS" start="2026-04-24T21:51:19.703380" elapsed="0.054610"/>
 </test>
 <test id="s1-t2" name="Criar reserva sem assentos" line="27">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:32.842256" level="INFO">Creating Session using : alias=api, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2026-04-24T21:51:19.760014" level="INFO">Creating Session using : alias=api, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>api</arg>
 <arg>${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2026-04-22T23:10:32.842110" elapsed="0.000274"/>
+<status status="PASS" start="2026-04-24T21:51:19.759724" elapsed="0.000575"/>
 </kw>
 <kw name="Criar Usuario E Retornar Token">
 <kw name="Generate Random String" owner="String">
-<msg time="2026-04-22T23:10:32.844934" level="INFO">${random} = 37130</msg>
+<msg time="2026-04-24T21:51:19.762977" level="INFO">${random} = 67831</msg>
 <var>${random}</var>
 <arg>5</arg>
 <arg>0123456789</arg>
 <doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<status status="PASS" start="2026-04-22T23:10:32.844479" elapsed="0.000491"/>
+<status status="PASS" start="2026-04-24T21:51:19.762124" elapsed="0.000936"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-22T23:10:32.845434" level="INFO">${email} = user_37130@email.com</msg>
+<msg time="2026-04-24T21:51:19.763867" level="INFO">${email} = user_67831@email.com</msg>
 <var>${email}</var>
 <arg>user_${random}@email.com</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-22T23:10:32.845097" elapsed="0.000364"/>
+<status status="PASS" start="2026-04-24T21:51:19.763293" elapsed="0.000616"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-22T23:10:32.845989" level="INFO">${user} = {'name': 'User', 'email': 'user_37130@email.com', 'password': '123456'}</msg>
+<msg time="2026-04-24T21:51:19.765033" level="INFO">${user} = {'name': 'User', 'email': 'user_67831@email.com', 'password': '123456'}</msg>
 <var>${user}</var>
 <arg>name=User</arg>
 <arg>email=${email}</arg>
 <arg>password=123456</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-22T23:10:32.845579" elapsed="0.000441"/>
+<status status="PASS" start="2026-04-24T21:51:19.764089" elapsed="0.001005"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:33.029354" level="INFO">POST Request : url=http://localhost:3000/api/v1/setup/admin 
+<msg time="2026-04-24T21:51:19.948157" level="INFO">POST Request : url=http://localhost:3000/api/v1/setup/admin 
  path_url=/api/v1/setup/admin 
  headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '71', 'Content-Type': 'application/json'} 
- body=b'{"name": "User", "email": "user_37130@email.com", "password": "123456"}' 
+ body=b'{"name": "User", "email": "user_67831@email.com", "password": "123456"}' 
  </msg>
-<msg time="2026-04-22T23:10:33.029470" level="INFO">POST Response : url=http://localhost:3000/api/v1/setup/admin 
+<msg time="2026-04-24T21:51:19.948361" level="INFO">POST Response : url=http://localhost:3000/api/v1/setup/admin 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '162', 'ETag': 'W/"a2-xPPYUTjk4eRUsGPjUzU6fT+APiE"', 'Date': 'Thu, 23 Apr 2026 02:10:33 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Admin user created successfully","data":{"_id":"69e97f9848c8216b28fb1f55","name":"User","email":"user_37130@email.com","role":"admin"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '162', 'ETag': 'W/"a2-IXrxT2Q08sO0VaJdb1Gxa0NdL58"', 'Date': 'Sat, 25 Apr 2026 00:51:19 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"Admin user created successfully","data":{"_id":"69ec1007ae050c77d51ae0aa","name":"User","email":"user_67831@email.com","role":"admin"}} 
  </msg>
 <arg>api</arg>
 <arg>/api/v1/setup/admin</arg>
 <arg>json=${user}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-22T23:10:32.846138" elapsed="0.183421"/>
+<status status="PASS" start="2026-04-24T21:51:19.765289" elapsed="0.183235"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.030266" level="INFO">${login} = {'email': 'user_37130@email.com', 'password': '123456'}</msg>
+<msg time="2026-04-24T21:51:19.950369" level="INFO">${login} = {'email': 'user_67831@email.com', 'password': '123456'}</msg>
 <var>${login}</var>
 <arg>email=${email}</arg>
 <arg>password=123456</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.029760" elapsed="0.000558"/>
+<status status="PASS" start="2026-04-24T21:51:19.949131" elapsed="0.001310"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:33.191511" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2026-04-24T21:51:20.123511" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
  path_url=/api/v1/auth/login 
  headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '55', 'Content-Type': 'application/json'} 
- body=b'{"email": "user_37130@email.com", "password": "123456"}' 
+ body=b'{"email": "user_67831@email.com", "password": "123456"}' 
  </msg>
-<msg time="2026-04-22T23:10:33.191715" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2026-04-24T21:51:20.123758" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '300', 'ETag': 'W/"12c-UU8QG/fzCxpqMfLvRAu1UObT3fQ"', 'Date': 'Thu, 23 Apr 2026 02:10:33 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"_id":"69e97f9848c8216b28fb1f55","name":"User","email":"user_37130@email.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk4NDhjODIxNmIyOGZiMWY1NSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.Gep84Ik8xSH-dtmwZgUrI_FcLcZocLJnIKTKdfSxEk0"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '300', 'ETag': 'W/"12c-TFNi0FQszDdvQJRc17qwWoniNsw"', 'Date': 'Sat, 25 Apr 2026 00:51:20 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"69ec1007ae050c77d51ae0aa","name":"User","email":"user_67831@email.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA3YWUwNTBjNzdkNTFhZTBhYSIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.nRXIegXho1WkXNpXmADe3Ieg45WYkfrHStIAI84j690"}} 
  </msg>
-<msg time="2026-04-22T23:10:33.192126" level="INFO">${res_login} = &lt;Response [200]&gt;</msg>
+<msg time="2026-04-24T21:51:20.124092" level="INFO">${res_login} = &lt;Response [200]&gt;</msg>
 <var>${res_login}</var>
 <arg>api</arg>
 <arg>/api/v1/auth/login</arg>
 <arg>json=${login}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.030448" elapsed="0.161759"/>
+<status status="PASS" start="2026-04-24T21:51:19.950673" elapsed="0.173471"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.194839" level="INFO">${json} = {'success': True, 'data': {'_id': '69e97f9848c8216b28fb1f55', 'name': 'User', 'email': 'user_37130@email.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk4NDhjO...</msg>
+<msg time="2026-04-24T21:51:20.125998" level="INFO">${json} = {'success': True, 'data': {'_id': '69ec1007ae050c77d51ae0aa', 'name': 'User', 'email': 'user_67831@email.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA3YWUwN...</msg>
 <var>${json}</var>
 <arg>${res_login.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.192632" elapsed="0.002271"/>
+<status status="PASS" start="2026-04-24T21:51:20.124529" elapsed="0.001532"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.196193" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk4NDhjODIxNmIyOGZiMWY1NSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.Gep84Ik8xSH-dtmwZgUrI_FcLcZocLJnIKTKdfSxEk0</msg>
+<msg time="2026-04-24T21:51:20.127301" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA3YWUwNTBjNzdkNTFhZTBhYSIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.nRXIegXho1WkXNpXmADe3Ieg45WYkfrHStIAI84j690</msg>
 <var>${token}</var>
 <arg>${json['data']['token']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.195165" elapsed="0.001080"/>
+<status status="PASS" start="2026-04-24T21:51:20.126283" elapsed="0.001190"/>
 </kw>
 <return>
 <value>${token}</value>
-<status status="PASS" start="2026-04-22T23:10:33.196371" elapsed="0.000099"/>
+<status status="PASS" start="2026-04-24T21:51:20.127642" elapsed="0.000109"/>
 </return>
-<msg time="2026-04-22T23:10:33.196718" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk4NDhjODIxNmIyOGZiMWY1NSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.Gep84Ik8xSH-dtmwZgUrI_FcLcZocLJnIKTKdfSxEk0</msg>
+<msg time="2026-04-24T21:51:20.128063" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA3YWUwNTBjNzdkNTFhZTBhYSIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.nRXIegXho1WkXNpXmADe3Ieg45WYkfrHStIAI84j690</msg>
 <var>${token}</var>
-<status status="PASS" start="2026-04-22T23:10:32.843219" elapsed="0.353540"/>
+<status status="PASS" start="2026-04-24T21:51:19.761226" elapsed="0.366880"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.198067" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk4NDhjODIxNmIyOGZiMWY1NSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.Gep84Ik8xSH-dtmwZgUrI_FcLcZocLJnIKTKdfSxEk0'}</msg>
+<msg time="2026-04-24T21:51:20.129363" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA3YWUwNTBjNzdkNTFhZTBhYSIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.nRXIegXho1WkXNpXmADe3Ieg45WYkfrHStIAI84j690'}</msg>
 <var>${headers}</var>
 <arg>Authorization=Bearer ${token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.197376" elapsed="0.000743"/>
+<status status="PASS" start="2026-04-24T21:51:20.128672" elapsed="0.000737"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.215585" level="INFO">${reservation} = {'session': '123', 'seats': []}</msg>
+<msg time="2026-04-24T21:51:20.145750" level="INFO">${reservation} = {'session': '123', 'seats': []}</msg>
 <var>${reservation}</var>
 <arg>session=123</arg>
 <arg>seats=@{EMPTY}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.198600" elapsed="0.017053"/>
+<status status="PASS" start="2026-04-24T21:51:20.130004" elapsed="0.015827"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:33.238455" level="INFO">POST Request : url=http://localhost:3000/api/v1/reservations 
+<msg time="2026-04-24T21:51:20.170357" level="INFO">POST Request : url=http://localhost:3000/api/v1/reservations 
  path_url=/api/v1/reservations 
- headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk4NDhjODIxNmIyOGZiMWY1NSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.Gep84Ik8xSH-dtmwZgUrI_FcLcZocLJnIKTKdfSxEk0', 'Content-Length': '31', 'Content-Type': 'application/json'} 
+ headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA3YWUwNTBjNzdkNTFhZTBhYSIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.nRXIegXho1WkXNpXmADe3Ieg45WYkfrHStIAI84j690', 'Content-Length': '31', 'Content-Type': 'application/json'} 
  body=b'{"session": "123", "seats": []}' 
  </msg>
-<msg time="2026-04-22T23:10:33.238607" level="INFO">POST Response : url=http://localhost:3000/api/v1/reservations 
+<msg time="2026-04-24T21:51:20.170524" level="INFO">POST Response : url=http://localhost:3000/api/v1/reservations 
  status=400, reason=Bad Request 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1613', 'ETag': 'W/"64d-L4GEbZY3C79ZU+eM+bw4zcemUKs"', 'Date': 'Thu, 23 Apr 2026 02:10:33 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1613', 'ETag': 'W/"64d-L4GEbZY3C79ZU+eM+bw4zcemUKs"', 'Date': 'Sat, 25 Apr 2026 00:51:20 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":false,"message":"Resource not found","stack":"CastError: Cast to ObjectId failed for value \"123\" (type string) at path \"_id\" for model \"Session\"\n    at SchemaObjectId.cast (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:5055:12)\n    at Query._castConditions (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:2351:10)\n    at model.Query._findOne (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:2674:8)\n    at model.Query.exec (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:4604:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.createReservation (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\src\\controllers\\reservationController.js:137:21)"} 
  </msg>
-<msg time="2026-04-22T23:10:33.239053" level="INFO">${res} = &lt;Response [400]&gt;</msg>
+<msg time="2026-04-24T21:51:20.170777" level="INFO">${res} = &lt;Response [400]&gt;</msg>
 <var>${res}</var>
 <arg>api</arg>
 <arg>/api/v1/reservations</arg>
@@ -183,147 +183,147 @@
 <arg>headers=${headers}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.216521" elapsed="0.022607"/>
+<status status="PASS" start="2026-04-24T21:51:20.146439" elapsed="0.024379"/>
 </kw>
 <kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.240742" level="INFO">Argument types are:
+<msg time="2026-04-24T21:51:20.173166" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${res.status_code}</arg>
 <arg>400</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.239777" elapsed="0.001092"/>
+<status status="PASS" start="2026-04-24T21:51:20.171744" elapsed="0.001570"/>
 </kw>
-<status status="PASS" start="2026-04-22T23:10:32.841563" elapsed="0.399718"/>
+<status status="PASS" start="2026-04-24T21:51:19.758805" elapsed="0.415391"/>
 </test>
 <test id="s1-t3" name="Reservar assento já ocupado" line="49">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:33.243438" level="INFO">Creating Session using : alias=api, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2026-04-24T21:51:20.177973" level="INFO">Creating Session using : alias=api, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>api</arg>
 <arg>${BASE_URL}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2026-04-22T23:10:33.242680" elapsed="0.000993"/>
+<status status="PASS" start="2026-04-24T21:51:20.177352" elapsed="0.000952"/>
 </kw>
 <kw name="Criar Usuario E Retornar Token">
 <kw name="Generate Random String" owner="String">
-<msg time="2026-04-22T23:10:33.245871" level="INFO">${random} = 27884</msg>
+<msg time="2026-04-24T21:51:20.181037" level="INFO">${random} = 98065</msg>
 <var>${random}</var>
 <arg>5</arg>
 <arg>0123456789</arg>
 <doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.245581" elapsed="0.000331"/>
+<status status="PASS" start="2026-04-24T21:51:20.180131" elapsed="0.000984"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.246430" level="INFO">${email} = user_27884@email.com</msg>
+<msg time="2026-04-24T21:51:20.182194" level="INFO">${email} = user_98065@email.com</msg>
 <var>${email}</var>
 <arg>user_${random}@email.com</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.246053" elapsed="0.000405"/>
+<status status="PASS" start="2026-04-24T21:51:20.181398" elapsed="0.000859"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.247011" level="INFO">${user} = {'name': 'User', 'email': 'user_27884@email.com', 'password': '123456'}</msg>
+<msg time="2026-04-24T21:51:20.183860" level="INFO">${user} = {'name': 'User', 'email': 'user_98065@email.com', 'password': '123456'}</msg>
 <var>${user}</var>
 <arg>name=User</arg>
 <arg>email=${email}</arg>
 <arg>password=123456</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.246633" elapsed="0.000409"/>
+<status status="PASS" start="2026-04-24T21:51:20.182512" elapsed="0.001411"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:33.436099" level="INFO">POST Request : url=http://localhost:3000/api/v1/setup/admin 
+<msg time="2026-04-24T21:51:20.356142" level="INFO">POST Request : url=http://localhost:3000/api/v1/setup/admin 
  path_url=/api/v1/setup/admin 
  headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '71', 'Content-Type': 'application/json'} 
- body=b'{"name": "User", "email": "user_27884@email.com", "password": "123456"}' 
+ body=b'{"name": "User", "email": "user_98065@email.com", "password": "123456"}' 
  </msg>
-<msg time="2026-04-22T23:10:33.436307" level="INFO">POST Response : url=http://localhost:3000/api/v1/setup/admin 
+<msg time="2026-04-24T21:51:20.356361" level="INFO">POST Response : url=http://localhost:3000/api/v1/setup/admin 
  status=201, reason=Created 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '162', 'ETag': 'W/"a2-EzcOBxy+I/iGti/+2+E/5mRaSXg"', 'Date': 'Thu, 23 Apr 2026 02:10:33 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"message":"Admin user created successfully","data":{"_id":"69e97f9948c8216b28fb1f5a","name":"User","email":"user_27884@email.com","role":"admin"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '162', 'ETag': 'W/"a2-JrFJp+pDZ3dqm0Oo12rJEuLJZuM"', 'Date': 'Sat, 25 Apr 2026 00:51:20 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"message":"Admin user created successfully","data":{"_id":"69ec1008ae050c77d51ae0af","name":"User","email":"user_98065@email.com","role":"admin"}} 
  </msg>
 <arg>api</arg>
 <arg>/api/v1/setup/admin</arg>
 <arg>json=${user}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.247154" elapsed="0.189276"/>
+<status status="PASS" start="2026-04-24T21:51:20.184124" elapsed="0.172368"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.437404" level="INFO">${login} = {'email': 'user_27884@email.com', 'password': '123456'}</msg>
+<msg time="2026-04-24T21:51:20.357552" level="INFO">${login} = {'email': 'user_98065@email.com', 'password': '123456'}</msg>
 <var>${login}</var>
 <arg>email=${email}</arg>
 <arg>password=123456</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.436702" elapsed="0.000746"/>
+<status status="PASS" start="2026-04-24T21:51:20.356787" elapsed="0.000806"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:33.618769" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2026-04-24T21:51:20.515194" level="INFO">POST Request : url=http://localhost:3000/api/v1/auth/login 
  path_url=/api/v1/auth/login 
  headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '55', 'Content-Type': 'application/json'} 
- body=b'{"email": "user_27884@email.com", "password": "123456"}' 
+ body=b'{"email": "user_98065@email.com", "password": "123456"}' 
  </msg>
-<msg time="2026-04-22T23:10:33.618868" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
+<msg time="2026-04-24T21:51:20.515367" level="INFO">POST Response : url=http://localhost:3000/api/v1/auth/login 
  status=200, reason=OK 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '300', 'ETag': 'W/"12c-qHrR+B57e25ncqfYBXTW0HEslgE"', 'Date': 'Thu, 23 Apr 2026 02:10:33 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
- body={"success":true,"data":{"_id":"69e97f9948c8216b28fb1f5a","name":"User","email":"user_27884@email.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk5NDhjODIxNmIyOGZiMWY1YSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.OkRpGQheDwt6KSdJoQt6D4sjgziCspIpN5pfS3HhtIE"}} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '300', 'ETag': 'W/"12c-c+oXRT+WBMpHo721Z5SghwwdrI0"', 'Date': 'Sat, 25 Apr 2026 00:51:20 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"success":true,"data":{"_id":"69ec1008ae050c77d51ae0af","name":"User","email":"user_98065@email.com","role":"admin","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA4YWUwNTBjNzdkNTFhZTBhZiIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.3AE13GU-Por9Cq_p_hW_N3ejBkf8oTad1QRBVigycFM"}} 
  </msg>
-<msg time="2026-04-22T23:10:33.619023" level="INFO">${res_login} = &lt;Response [200]&gt;</msg>
+<msg time="2026-04-24T21:51:20.515626" level="INFO">${res_login} = &lt;Response [200]&gt;</msg>
 <var>${res_login}</var>
 <arg>api</arg>
 <arg>/api/v1/auth/login</arg>
 <arg>json=${login}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.437654" elapsed="0.181392"/>
+<status status="PASS" start="2026-04-24T21:51:20.357785" elapsed="0.157883"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.619944" level="INFO">${json} = {'success': True, 'data': {'_id': '69e97f9948c8216b28fb1f5a', 'name': 'User', 'email': 'user_27884@email.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk5NDhjO...</msg>
+<msg time="2026-04-24T21:51:20.517304" level="INFO">${json} = {'success': True, 'data': {'_id': '69ec1008ae050c77d51ae0af', 'name': 'User', 'email': 'user_98065@email.com', 'role': 'admin', 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA4YWUwN...</msg>
 <var>${json}</var>
 <arg>${res_login.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.619220" elapsed="0.000752"/>
+<status status="PASS" start="2026-04-24T21:51:20.515944" elapsed="0.001411"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.620579" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk5NDhjODIxNmIyOGZiMWY1YSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.OkRpGQheDwt6KSdJoQt6D4sjgziCspIpN5pfS3HhtIE</msg>
+<msg time="2026-04-24T21:51:20.518663" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA4YWUwNTBjNzdkNTFhZTBhZiIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.3AE13GU-Por9Cq_p_hW_N3ejBkf8oTad1QRBVigycFM</msg>
 <var>${token}</var>
 <arg>${json['data']['token']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.620083" elapsed="0.000518"/>
+<status status="PASS" start="2026-04-24T21:51:20.517556" elapsed="0.001159"/>
 </kw>
 <return>
 <value>${token}</value>
-<status status="PASS" start="2026-04-22T23:10:33.620660" elapsed="0.000052"/>
+<status status="PASS" start="2026-04-24T21:51:20.518818" elapsed="0.000093"/>
 </return>
-<msg time="2026-04-22T23:10:33.620834" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk5NDhjODIxNmIyOGZiMWY1YSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.OkRpGQheDwt6KSdJoQt6D4sjgziCspIpN5pfS3HhtIE</msg>
+<msg time="2026-04-24T21:51:20.519261" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA4YWUwNTBjNzdkNTFhZTBhZiIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.3AE13GU-Por9Cq_p_hW_N3ejBkf8oTad1QRBVigycFM</msg>
 <var>${token}</var>
-<status status="PASS" start="2026-04-22T23:10:33.244687" elapsed="0.376166"/>
+<status status="PASS" start="2026-04-24T21:51:20.179443" elapsed="0.339859"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.622036" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk5NDhjODIxNmIyOGZiMWY1YSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.OkRpGQheDwt6KSdJoQt6D4sjgziCspIpN5pfS3HhtIE'}</msg>
+<msg time="2026-04-24T21:51:20.520534" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA4YWUwNTBjNzdkNTFhZTBhZiIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.3AE13GU-Por9Cq_p_hW_N3ejBkf8oTad1QRBVigycFM'}</msg>
 <var>${headers}</var>
 <arg>Authorization=Bearer ${token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.621319" elapsed="0.000788"/>
+<status status="PASS" start="2026-04-24T21:51:20.519879" elapsed="0.000701"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-04-22T23:10:33.623182" level="INFO">${reservation} = {'session': '123', 'seats': 'A1'}</msg>
+<msg time="2026-04-24T21:51:20.521507" level="INFO">${reservation} = {'session': '123', 'seats': 'A1'}</msg>
 <var>${reservation}</var>
 <arg>session=123</arg>
 <arg>seats=A1</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.622611" elapsed="0.000623"/>
+<status status="PASS" start="2026-04-24T21:51:20.521077" elapsed="0.000471"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:33.640538" level="INFO">POST Request : url=http://localhost:3000/api/v1/reservations 
+<msg time="2026-04-24T21:51:20.542402" level="INFO">POST Request : url=http://localhost:3000/api/v1/reservations 
  path_url=/api/v1/reservations 
- headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk5NDhjODIxNmIyOGZiMWY1YSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.OkRpGQheDwt6KSdJoQt6D4sjgziCspIpN5pfS3HhtIE', 'Content-Length': '33', 'Content-Type': 'application/json'} 
+ headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA4YWUwNTBjNzdkNTFhZTBhZiIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.3AE13GU-Por9Cq_p_hW_N3ejBkf8oTad1QRBVigycFM', 'Content-Length': '33', 'Content-Type': 'application/json'} 
  body=b'{"session": "123", "seats": "A1"}' 
  </msg>
-<msg time="2026-04-22T23:10:33.640685" level="INFO">POST Response : url=http://localhost:3000/api/v1/reservations 
+<msg time="2026-04-24T21:51:20.542614" level="INFO">POST Response : url=http://localhost:3000/api/v1/reservations 
  status=400, reason=Bad Request 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1613', 'ETag': 'W/"64d-L4GEbZY3C79ZU+eM+bw4zcemUKs"', 'Date': 'Thu, 23 Apr 2026 02:10:33 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1613', 'ETag': 'W/"64d-L4GEbZY3C79ZU+eM+bw4zcemUKs"', 'Date': 'Sat, 25 Apr 2026 00:51:20 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":false,"message":"Resource not found","stack":"CastError: Cast to ObjectId failed for value \"123\" (type string) at path \"_id\" for model \"Session\"\n    at SchemaObjectId.cast (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:5055:12)\n    at Query._castConditions (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:2351:10)\n    at model.Query._findOne (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:2674:8)\n    at model.Query.exec (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:4604:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.createReservation (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\src\\controllers\\reservationController.js:137:21)"} 
  </msg>
-<msg time="2026-04-22T23:10:33.640902" level="INFO">${res1} = &lt;Response [400]&gt;</msg>
+<msg time="2026-04-24T21:51:20.542915" level="INFO">${res1} = &lt;Response [400]&gt;</msg>
 <var>${res1}</var>
 <arg>api</arg>
 <arg>/api/v1/reservations</arg>
@@ -331,20 +331,20 @@
 <arg>headers=${headers}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.623682" elapsed="0.017263"/>
+<status status="PASS" start="2026-04-24T21:51:20.521977" elapsed="0.021024"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2026-04-22T23:10:33.656661" level="INFO">POST Request : url=http://localhost:3000/api/v1/reservations 
+<msg time="2026-04-24T21:51:20.571967" level="INFO">POST Request : url=http://localhost:3000/api/v1/reservations 
  path_url=/api/v1/reservations 
- headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTk3Zjk5NDhjODIxNmIyOGZiMWY1YSIsImlhdCI6MTc3NjkxMDIzMywiZXhwIjoxNzc2OTk2NjMzfQ.OkRpGQheDwt6KSdJoQt6D4sjgziCspIpN5pfS3HhtIE', 'Content-Length': '33', 'Content-Type': 'application/json'} 
+ headers={'User-Agent': 'python-requests/2.33.1', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZWMxMDA4YWUwNTBjNzdkNTFhZTBhZiIsImlhdCI6MTc3NzA3ODI4MCwiZXhwIjoxNzc3MTY0NjgwfQ.3AE13GU-Por9Cq_p_hW_N3ejBkf8oTad1QRBVigycFM', 'Content-Length': '33', 'Content-Type': 'application/json'} 
  body=b'{"session": "123", "seats": "A1"}' 
  </msg>
-<msg time="2026-04-22T23:10:33.656854" level="INFO">POST Response : url=http://localhost:3000/api/v1/reservations 
+<msg time="2026-04-24T21:51:20.572291" level="INFO">POST Response : url=http://localhost:3000/api/v1/reservations 
  status=400, reason=Bad Request 
- headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1613', 'ETag': 'W/"64d-L4GEbZY3C79ZU+eM+bw4zcemUKs"', 'Date': 'Thu, 23 Apr 2026 02:10:33 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '1613', 'ETag': 'W/"64d-L4GEbZY3C79ZU+eM+bw4zcemUKs"', 'Date': 'Sat, 25 Apr 2026 00:51:20 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={"success":false,"message":"Resource not found","stack":"CastError: Cast to ObjectId failed for value \"123\" (type string) at path \"_id\" for model \"Session\"\n    at SchemaObjectId.cast (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:5055:12)\n    at Query._castConditions (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:2351:10)\n    at model.Query._findOne (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:2674:8)\n    at model.Query.exec (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\node_modules\\mongoose\\lib\\query.js:4604:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.createReservation (C:\\Users\\jeniffer.neves\\source\\repos\\API_CineTicket_Jeniffer_Ferraz\\src\\controllers\\reservationController.js:137:21)"} 
  </msg>
-<msg time="2026-04-22T23:10:33.657078" level="INFO">${res} = &lt;Response [400]&gt;</msg>
+<msg time="2026-04-24T21:51:20.572627" level="INFO">${res} = &lt;Response [400]&gt;</msg>
 <var>${res}</var>
 <arg>api</arg>
 <arg>/api/v1/reservations</arg>
@@ -352,16 +352,16 @@
 <arg>headers=${headers}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.641931" elapsed="0.015190"/>
+<status status="PASS" start="2026-04-24T21:51:20.543904" elapsed="0.028767"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${res.status_code} == 400 or ${res.status_code} == 409</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2026-04-22T23:10:33.657646" elapsed="0.002303"/>
+<status status="PASS" start="2026-04-24T21:51:20.573392" elapsed="0.003130"/>
 </kw>
-<status status="PASS" start="2026-04-22T23:10:33.241933" elapsed="0.418405"/>
+<status status="PASS" start="2026-04-24T21:51:20.175818" elapsed="0.401336"/>
 </test>
-<status status="PASS" start="2026-04-22T23:10:32.622078" elapsed="1.039631"/>
+<status status="PASS" start="2026-04-24T21:51:19.094053" elapsed="1.484675"/>
 </suite>
 <statistics>
 <total>

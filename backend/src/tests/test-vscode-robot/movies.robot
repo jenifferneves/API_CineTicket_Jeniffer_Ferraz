@@ -120,3 +120,22 @@ Listar Filmes
     # valida conteúdo
     Should Not Be Empty    ${movie['title']}
     Should Be True    ${movie['duration']} > 0
+
+Criar filme com token inválido
+    Create Session    api    ${BASE_URL}
+
+    ${headers}=    Create Dictionary
+    ...    Authorization=Bearer token_fake
+
+    ${movie}=    Create Dictionary
+    ...    title=Filme Fake
+    ...    duration=120
+
+    ${res}=    POST On Session
+    ...    api
+    ...    /api/v1/movies
+    ...    json=${movie}
+    ...    headers=${headers}
+    ...    expected_status=any
+
+    Should Be Equal As Integers    ${res.status_code}    401

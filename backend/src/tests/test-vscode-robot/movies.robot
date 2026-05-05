@@ -39,14 +39,14 @@ Criar Filme
     ${genres}=    Create List    Drama
 
     ${movie}=    Create Dictionary
-...    title=Filme Teste
-...    synopsis=Um filme de teste automatizado
-...    director=Diretor Teste
-...    genres=${genres}
-...    duration=120
-...    classification=16
-...    poster=teste.jpg
-...    releaseDate=2026-04-08
+    ...    title=Filme Teste
+    ...    synopsis=Um filme de teste automatizado
+    ...    director=Diretor Teste
+    ...    genres=${genres}
+    ...    duration=120
+    ...    classification=16
+    ...    poster=teste.jpg
+    ...    releaseDate=2026-04-08
 
     ${create}=    POST On Session    api    /api/v1/movies    json=${movie}    headers=${headers}
 
@@ -56,7 +56,14 @@ Criar Filme
 
     ${movie_json}=    Set Variable    ${create.json()}
 
-    Should Not Be Empty    ${movie_json}
+    # valida resposta
+    Should Be True    ${movie_json['success']}
+    Should Not Be Empty    ${movie_json['data']}
+
+    Dictionary Should Contain Key    ${movie_json['data']}    title
+    Dictionary Should Contain Key    ${movie_json['data']}    duration
+    Dictionary Should Contain Key    ${movie_json['data']}    genres
+    Dictionary Should Contain Key    ${movie_json['data']}    director
 
 
 Listar Filmes
@@ -95,4 +102,21 @@ Listar Filmes
 
     ${movies_json}=    Set Variable    ${movies.json()}
 
-    Should Not Be Empty    ${movies_json}
+    # valida resposta geral
+    Should Be True    ${movies_json['success']}
+    Should Be True    ${movies_json['count']} > 0
+    Should Not Be Empty    ${movies_json['data']}
+
+    # pega primeiro filme
+    ${data}=    Set Variable    ${movies_json['data']}
+    ${movie}=    Get From List    ${data}    0
+
+    # valida estrutura correta (INGLÊS)
+    Dictionary Should Contain Key    ${movie}    title
+    Dictionary Should Contain Key    ${movie}    duration
+    Dictionary Should Contain Key    ${movie}    genres
+    Dictionary Should Contain Key    ${movie}    director
+
+    # valida conteúdo
+    Should Not Be Empty    ${movie['title']}
+    Should Be True    ${movie['duration']} > 0

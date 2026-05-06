@@ -139,3 +139,22 @@ Criar filme com token inválido
     ...    expected_status=any
 
     Should Be Equal As Integers    ${res.status_code}    401
+
+Criar filme com token mal formatado
+    Create Session    api    ${BASE_URL}
+
+    ${headers}=    Create Dictionary
+    ...    Authorization=123456
+
+    ${movie}=    Create Dictionary
+    ...    title=Filme Erro Header
+    ...    duration=120
+
+    ${res}=    POST On Session
+    ...    api
+    ...    /api/v1/movies
+    ...    json=${movie}
+    ...    headers=${headers}
+    ...    expected_status=any
+
+    Should Be Equal As Integers    ${res.status_code}    401

@@ -82,3 +82,23 @@ Registrar usuário com email duplicado
     # valida erro esperado
     Should Be True
     ...    ${duplicate.status_code} == 400 or ${duplicate.status_code} == 409
+
+Registrar usuário sem campos obrigatórios
+    Create Session    api    ${BASE_URL}
+
+    ${user}=    Create Dictionary
+    ...    name=
+    ...    email=
+    ...    password=
+
+    ${res}=    POST On Session
+    ...    api
+    ...    /api/v1/auth/register
+    ...    json=${user}
+    ...    expected_status=any
+
+    Log    ${res.text}
+
+    Should Be Equal As Integers
+    ...    ${res.status_code}
+    ...    400

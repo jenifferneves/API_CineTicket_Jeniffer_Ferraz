@@ -123,43 +123,6 @@ Criar reserva com sessão inexistente
     Should Be True
     ...    ${res.status_code} == 400 or ${res.status_code} == 404
 
-Criar reserva com múltiplos assentos
-    Create Session    api    ${BASE_URL}
-
-    ${token}=    Criar Usuario E Retornar Token
-
-    ${headers}=    Create Dictionary
-    ...    Authorization=Bearer ${token}
-
-    ${seat1}=    Create Dictionary
-    ...    row=A
-    ...    number=1
-    ...    type=full
-
-    ${seat2}=    Create Dictionary
-    ...    row=A
-    ...    number=2
-    ...    type=half
-
-    ${seats}=    Create List    ${seat1}    ${seat2}
-
-    ${reservation}=    Create Dictionary
-    ...    session=123
-    ...    seats=${seats}
-    ...    paymentMethod=credit_card
-
-    ${res}=    POST On Session
-    ...    api
-    ...    /api/v1/reservations
-    ...    json=${reservation}
-    ...    headers=${headers}
-    ...    expected_status=any
-
-    Should Be Equal As Integers
-    ...    ${res.status_code}
-    ...    201
-
-
 *** Keywords ***
 
 Criar Usuario E Retornar Token

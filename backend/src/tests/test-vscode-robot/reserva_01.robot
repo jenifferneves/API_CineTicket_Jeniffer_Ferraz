@@ -156,3 +156,89 @@ Fluxo Completo Reserva
     ${reserve_json}=    Set Variable    ${reserve_res.json()}
 
     Should Not Be Empty    ${reserve_json}
+
+Criar reserva com múltiplos assentos
+    Create Session    api    ${BASE_URL}
+
+    ${token}=    Criar Usuario E Retornar Token
+
+    ${headers}=    Create Dictionary
+    ...    Authorization=Bearer ${token}
+
+    ${seat1}=    Create Dictionary
+    ...    row=A
+    ...    number=1
+    ...    type=full
+
+    ${seat2}=    Create Dictionary
+    ...    row=A
+    ...    number=2
+    ...    type=half
+
+    ${seats}=    Create List    ${seat1}    ${seat2}
+
+    ${reservation}=    Create Dictionary
+    ...    session=123
+    ...    seats=${seats}
+    ...    paymentMethod=credit_card
+
+    ${res}=    POST On Session
+    ...    api
+    ...    /api/v1/reservations
+    ...    json=${reservation}
+    ...    headers=${headers}
+    ...    expected_status=any
+
+    Should Be Equal As Integers
+    ...    ${res.status_code}
+    ...    400
+
+Listar histórico de reservas do usuário
+    Create Session    api    ${BASE_URL}
+
+    ${token}=    Criar Usuario E Retornar Token
+
+    ${headers}=    Create Dictionary
+    ...    Authorization=Bearer ${token}
+
+    ${res}=    GET On Session
+    ...    api
+    ...    /api/v1/reservations
+    ...    headers=${headers}
+    ...    expected_status=any
+
+    Should Be Equal As Integers
+    ...    ${res.status_code}
+    ...    200
+
+*** Keywords ***
+
+Criar Usuario E Retornar Token
+    ${random}=    Generate Random String    5    0123456789
+    ${email}=    Set Variable    user_${random}@email.com
+
+    ${user}=    Create Dictionary
+    ...    name=User
+    ...    email=${email}
+    ...    password=123456
+
+    POST On Session
+    ...    api
+    ...    /api/v1/setup/admin
+    ...    json=${user}
+    ...    expected_status=any
+
+    ${login}=    Create Dictionary
+    ...    email=${email}
+    ...    password=123456
+
+    ${res_login}=    POST On Session
+    ...    api
+    ...    /api/v1/auth/login
+    ...    json=${login}
+    ...    expected_status=any
+
+    ${json}=    Set Variable    ${res_login.json()}
+    ${token}=    Set Variable    ${json['data']['token']}
+
+    RETURN    ${token}

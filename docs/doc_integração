@@ -1,0 +1,493 @@
+# Documentação de Testes de Integração
+
+## Módulo: Autenticação (/auth)
+
+### Objetivo
+Validar a integração entre frontend e backend nos fluxos de autenticação, garantindo que cadastro, login, autenticação JWT e tratamento de erros funcionem corretamente.
+
+---
+
+## Escopo da Integração
+
+- Endpoint: `/api/v1/auth/register`
+- Endpoint: `/api/v1/auth/login`
+- Endpoint: rotas protegidas com JWT
+- Métodos: `POST`
+- Integração:
+  - Front realiza cadastro de usuários
+  - Front realiza login
+  - Backend retorna token JWT
+  - Front armazena token e utiliza nas rotas protegidas
+  - Tratamento de erros de autenticação
+
+---
+
+# Casos de Teste de Integração
+
+## CT-INT-AUTH-01 – Registro de usuário integrado
+
+### Ação
+- Preencher formulário de cadastro no frontend
+- Enviar dados válidos
+
+### Validações
+- Front realiza `POST /auth/register`
+- API responde com `200` ou `201`
+- Usuário é criado corretamente
+
+### Resultado esperado
+- Conta criada com sucesso
+- Usuário redirecionado para login
+
+---
+
+## CT-INT-AUTH-02 – Login integrado
+
+### Ação
+- Realizar login com credenciais válidas
+
+### Validações
+- Front realiza `POST /auth/login`
+- API retorna `200 OK`
+- Token JWT retornado corretamente
+
+### Resultado esperado
+- Usuário autenticado
+- Navegação para home/dashboard
+
+---
+
+## CT-INT-AUTH-03 – Validação do token JWT
+
+### Ação
+- Realizar login
+
+### Validações
+- Backend retorna token JWT
+- Front armazena token corretamente
+- Token utilizado nas rotas protegidas
+
+### Resultado esperado
+- Usuário permanece autenticado
+- Requisições autenticadas funcionando
+
+---
+
+## CT-INT-AUTH-04 – Login com senha inválida
+
+### Ação
+- Informar senha incorreta
+
+### Validações
+- API retorna `400` ou `401`
+- Front recebe erro corretamente
+
+### Resultado esperado
+- Exibir mensagem de erro de autenticação
+- Usuário não autenticado
+
+---
+
+## CT-INT-AUTH-05 – Login com email inválido
+
+### Ação
+- Informar email inválido
+
+### Validações
+- API retorna `401`
+- Front trata erro corretamente
+
+### Resultado esperado
+- Exibir mensagem de credenciais inválidas
+
+---
+
+## CT-INT-AUTH-06 – Cadastro com email duplicado
+
+### Ação
+- Tentar cadastrar email já existente
+
+### Validações
+- API retorna `400` ou `409`
+- Front recebe mensagem de erro
+
+### Resultado esperado
+- Sistema bloqueia cadastro duplicado
+
+---
+
+## CT-INT-AUTH-07 – Cadastro sem campos obrigatórios
+
+### Ação
+- Enviar formulário vazio
+
+### Validações
+- API retorna `400`
+- Front valida campos obrigatórios
+
+### Resultado esperado
+- Exibir mensagens de validação
+
+---
+
+## CT-INT-AUTH-08 – Acesso sem token
+
+### Ação
+- Acessar rota protegida sem autenticação
+
+### Validações
+- API retorna `401 Unauthorized`
+
+### Resultado esperado
+- Usuário redirecionado para login
+- Acesso negado
+
+---
+
+## CT-INT-AUTH-09 – Token inválido
+
+### Ação
+- Utilizar token inválido/manual
+
+### Validações
+- API retorna `401`
+- Front trata sessão inválida
+
+### Resultado esperado
+- Logout automático ou bloqueio de acesso
+
+---
+
+# Critérios de Aceite
+
+- Cadastro funcionando corretamente
+- Login integrado com backend
+- JWT armazenado e utilizado corretamente
+- Tratamento de erros funcionando
+- Rotas protegidas respeitando autenticação
+- Nenhuma quebra visual no frontend
+
+---
+
+# Riscos Identificados
+
+- Token expirado causando falhas de navegação
+- API offline impedindo autenticação
+- Divergência entre validação frontend/backend
+
+---
+
+---
+
+# Módulo: Filmes (/movies)
+
+## Objetivo
+Validar a comunicação entre frontend e backend, garantindo que os dados exibidos na interface correspondam corretamente às respostas da API.
+
+---
+
+## Escopo da Integração
+
+- Endpoint: `/movies`
+- Método: `GET`
+- Integração:
+  - Front consome API de listagem
+  - Front consome API de detalhes por ID
+  - Tratamento de erros da API no front
+
+---
+
+# Casos de Teste de Integração
+
+## CT-INT-MOVIE-01 – Listagem de filmes integrada
+
+### Ação
+- Acessar tela de filmes no frontend
+
+### Validações
+- Front realiza requisição `GET /movies`
+- API responde `200 OK`
+- Filmes exibidos correspondem aos dados da API
+
+### Resultado esperado
+- Lista exibida corretamente
+- Dados consistentes:
+  - Título
+  - Duração
+  - Gênero
+  - Poster
+
+---
+
+## CT-INT-MOVIE-02 – Consistência de dados (Front vs API)
+
+### Ação
+- Capturar resposta da API
+- Comparar com dados exibidos na tela
+
+### Validações
+- Dados do frontend iguais aos do backend
+
+### Resultado esperado
+- Nenhuma divergência de informação
+
+---
+
+## CT-INT-MOVIE-03 – Navegação para detalhes
+
+### Ação
+- Clicar em um filme
+
+### Validações
+- Front chama `GET /movies/{id}`
+- API retorna `200 OK`
+- Tela exibe dados corretos
+
+### Resultado esperado
+- Exibir:
+  - Título
+  - Sinopse
+  - Duração
+  - Data de lançamento
+
+---
+
+## CT-INT-MOVIE-04 – Tratamento de erro da API
+
+### Ação
+- Simular falha da API
+
+### Validações
+- Front recebe erro
+- Tratamento realizado corretamente
+
+### Resultado esperado
+- Exibir mensagem amigável
+- Interface não quebra
+
+---
+
+## CT-INT-MOVIE-05 – Nenhum filme disponível
+
+### Ação
+- API retorna lista vazia
+
+### Validações
+- Front interpreta resposta corretamente
+
+### Resultado esperado
+- Exibir:
+  - "Nenhum filme disponível"
+
+---
+
+## CT-INT-MOVIE-06 – Filme sem pôster (fallback)
+
+### Ação
+- API retorna poster nulo ou ausente
+
+### Validações
+- Front trata ausência de imagem
+
+### Resultado esperado
+- Exibir imagem padrão
+
+---
+
+## CT-INT-MOVIE-07 – Tempo de resposta da API
+
+### Ação
+- Monitorar carregamento da tela
+
+### Validações
+- Front aguarda resposta corretamente
+- Loading exibido
+
+### Resultado esperado
+- UX não quebrada durante carregamento
+
+---
+
+# Critérios de Aceite
+
+- Dados exibidos corretamente
+- Navegação funcionando
+- Tratamento de erros funcionando
+- Sem quebra visual
+
+---
+
+# Riscos Identificados
+
+- API offline impactando listagem
+- Lentidão afetando UX
+- Divergência entre API e frontend
+
+---
+
+---
+
+# Módulo: Reservas (/reservations)
+
+## Objetivo
+Validar a integração completa entre frontend e backend no fluxo de reservas, checkout e histórico do usuário.
+
+---
+
+## Escopo da Integração
+
+- Endpoint: `/api/v1/reservations`
+- Métodos: `GET` e `POST`
+- Integração:
+  - Front cria reservas
+  - Front lista histórico
+  - Front valida autenticação
+  - Backend processa assentos e pagamento
+
+---
+
+# Casos de Teste de Integração
+
+## CT-INT-RESERVE-01 – Fluxo completo de reserva
+
+### Ação
+- Usuário realiza login
+- Seleciona sessão
+- Seleciona assento
+- Finaliza reserva
+
+### Validações
+- Front realiza integração completa
+- APIs retornam sucesso
+
+### Resultado esperado
+- Reserva criada com sucesso
+- Assentos atualizados
+
+---
+
+## CT-INT-RESERVE-02 – Reserva com assento disponível
+
+### Ação
+- Selecionar assento livre
+
+### Validações
+- API retorna `201`
+- Reserva criada corretamente
+
+### Resultado esperado
+- Assento marcado como ocupado
+
+---
+
+## CT-INT-RESERVE-03 – Reserva com múltiplos assentos
+
+### Ação
+- Selecionar múltiplos assentos
+
+### Validações
+- Front envia lista corretamente
+- Backend processa reserva
+
+### Resultado esperado
+- Todos os assentos adicionados
+
+---
+
+## CT-INT-RESERVE-04 – Reserva sem autenticação
+
+### Ação
+- Tentar reservar sem login
+
+### Validações
+- API retorna `401`
+
+### Resultado esperado
+- Usuário redirecionado para login
+
+---
+
+## CT-INT-RESERVE-05 – Reserva sem assentos
+
+### Ação
+- Finalizar checkout sem selecionar assentos
+
+### Validações
+- API retorna `400`
+
+### Resultado esperado
+- Front exibe mensagem de validação
+
+---
+
+## CT-INT-RESERVE-06 – Reservar assento ocupado
+
+### Ação
+- Selecionar assento já reservado
+
+### Validações
+- API retorna `400` ou `409`
+
+### Resultado esperado
+- Mensagem de indisponibilidade
+
+---
+
+## CT-INT-RESERVE-07 – Sessão inexistente
+
+### Ação
+- Enviar reserva para sessão inválida
+
+### Validações
+- API retorna `400` ou `404`
+
+### Resultado esperado
+- Erro tratado corretamente
+
+---
+
+## CT-INT-RESERVE-08 – Histórico de reservas
+
+### Ação
+- Acessar histórico do usuário
+
+### Validações
+- Front realiza `GET /reservations`
+- API retorna `200`
+
+### Resultado esperado
+- Lista de reservas exibida corretamente
+
+---
+
+## CT-INT-RESERVE-09 – Tratamento de erro da API
+
+### Ação
+- Simular falha da API
+
+### Validações
+- Front recebe erro
+- Interface trata falha corretamente
+
+### Resultado esperado
+- Mensagem amigável exibida
+- Aplicação não quebra
+
+---
+
+# Critérios de Aceite
+
+- Fluxo de reserva funcionando ponta a ponta
+- Assentos sincronizados corretamente
+- Histórico exibido corretamente
+- Tratamento de erros funcionando
+- Integração estável entre frontend e backend
+
+---
+
+# Riscos Identificados
+
+- Conflito de assentos simultâneos
+- API offline afetando checkout
+- Divergência de estado dos assentos
+- Lentidão durante processamento da reserva
